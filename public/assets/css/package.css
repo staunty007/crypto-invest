@@ -1,0 +1,125 @@
+.package {
+    margin: 0;
+    width: 270px;
+    height: 500px;
+    padding: 20px;
+    display: grid;
+    place-items: center;
+    border-radius: 5px;
+}
+
+#selectPackage {
+    background: #dddddd;
+    pointer-events: none;
+}
+
+.price {
+    margin: 10px 0;
+    /* width: 270px; */
+}
+
+.price h5 {
+    margin-bottom: 0;
+    font-size: 1.4rem;
+}
+.package .package-content {
+    text-align: center;
+    padding: 20px;
+}
+.package .package-content .logo {
+    display: inline-block;
+    width: 80px;
+}
+.package .package-content .p-title {
+    margin: 15px 0;
+    font-size: 1.2rem;
+}
+.package .package-content .cta {
+    display: block;
+    border: 1px solid #239C59;
+    border-radius: 30px;
+    padding: 10px 20px;
+    margin: 10px;
+    font-weight: bold;
+}
+.package .package-content .cta:hover {
+    display: block;
+    border: 1px solid #239C59;
+    border-radius: 30px;
+    background: #239C59;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 10px;
+    transition: all .5s;
+}
+.package .package-content .p-percentage .percent {
+    font-size: 7.5rem;
+}
+
+.package .package-content .hours h5 {
+    color: #239C59;
+}
+
+.package .package-content>p {
+    margin: 0;
+    font-weight: 300;
+}
+.package .package-content .logo img {
+    margin: 0 auto;
+    width: 100%;
+    object-fit: contain;
+}
+
+.shadow {
+    box-shadow: 0 6px 23px -2px rgba(0, 0, 0, 0.05);
+}
+
+.middle {
+    margin: 0;
+    width: 270px;
+    height: 500px;
+    padding: 20px;
+    display: grid;
+    place-items: center;
+    background: #239C59;
+    color: #fff;
+    /* margin-top: -25px; */
+}
+
+.middle >.package-content >.p-title>h3 {
+    color: #fff;
+}
+.middle >.package-content >.hours>h5 {
+    color: #fff;
+}
+.middle > .package-content > .p-percentage>.percent {
+    color: #fff;
+}
+
+.middle .package-content .cta {
+    display: block;
+    border: 1px solid #fff;
+    color: #fff;
+    border-radius: 30px;
+    padding: 10px 20px;
+    margin: 10px;
+    font-weight: bold;
+}
+.middle .package-content .cta:hover {
+    display: block;
+    border: 1px solid #fff;
+    border-radius: 30px;
+    background: #fff;
+    color: #239C59;
+    padding: 10px 20px;
+    margin: 10px;
+    transition: all .5s;
+}
+
+.warning {
+    border: 1px solid red;
+}
+
+.errColor {
+    color: red;
+}
