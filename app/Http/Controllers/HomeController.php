@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        #return view('pages.auth.index');
-        return view('home');
+        return view('pages.auth.index');
+        //return view('home');
     }
 }
