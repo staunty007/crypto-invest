@@ -78,4 +78,9 @@ class RegisterController extends Controller
             'package' => $data['package'],
         ]);
     }
+
+    public function showRegistrationForm()
+    {
+        return view('pages.guest.signup');
+    }
 }

@@ -12,7 +12,7 @@ class PagesController extends Controller
         return view($this->route . "index");
     }
     public function about() {
-        return view($this->route . "about");
+        return view($this->route . "about-us");
     }
     public function contact() {
         return view($this->route . "contact");
