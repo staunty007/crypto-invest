@@ -26,4 +26,16 @@ class HomeController extends Controller
         return view('pages.auth.index');
         //return view('home');
     }
+
+    public function profile()
+    {
+        return view('pages.auth.profile');
+        //return view('home');
+    }
+
+    public function plans()
+    {
+        return view('pages.auth.plans');
+        //return view('home');
+    }
 }

@@ -21,3 +21,5 @@ Route::get('/features', 'PagesController@features');
 Auth::routes();
 
 Route::get('/app', 'HomeController@index')->name('app');
+Route::get('/profile', 'HomeController@profile')->name('profile');
+Route::get('/plans', 'HomeController@plans')->name('plans');

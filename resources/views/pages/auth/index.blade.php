@@ -1,11 +1,136 @@
-@extends('layouts.guest')
+@extends('layouts.auth')
 
 @section('content')
+<div class="account_wrapper float_left" style="height: 100vh;">
+
+    <div class="row mb-5">
+
+        <div class="col-md-12 col-lg-12 col-sm-12 col-12">
+            <div class="sv_heading_wraper">
+
+                <h3>my account</h3>
+
+            </div>
+        </div>
+        <div class="col-md-4 col-lg-4 col-xl-3 col-sm-6 col-12">
+            <div class="investment_box_wrapper color_1 float_left">
+                <a href="#">
+                    <div class="investment_icon_wrapper float_left">
+                        <i class="far fa-money-bill-alt"></i>
+                        <h1>deposits</h1>
+                    </div>
+
+                    <div class="invest_details float_left">
+                        <table class="invest_table">
+                            <tbody>
+                                <tr>
+                                    <td class="invest_td1">Active Deposit</td>
+                                    <td class="invest_td1"> : $0.00 USD</td>
+                                </tr>
+                                <tr>
+                                    <td class="invest_td1">New Deposit</td>
+                                    <td class="invest_td1">: $0.00 USD</td>
+                                </tr>
+                                <tr>
+                                    <td class="invest_td1">Matured Deposit</td>
+                                    <td class="invest_td1">: $0.00 USD</td>
+                                </tr>
+                                <tr>
+                                    <td class="invest_td1">Released Deposit</td>
+                                    <td class="invest_td1">: $0.00 USD</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 col-lg-4 col-xl-3 col-sm-6 col-12">
+            <div class="investment_box_wrapper color_2 float_left">
+                <a href="#">
+                    <div class="investment_icon_wrapper float_left">
+                        <i class="far fa-money-bill-alt"></i>
+                        <h1>payouts</h1>
+                    </div>
+
+                    <div class="invest_details float_left">
+                        <table class="invest_table">
+                            <tbody>
+                                <tr>
+                                    <td class="invest_td1">total payouts</td>
+                                    <td class="invest_td1"> : $0.00 USD</td>
+                                </tr>
+                                <tr>
+                                    <td class="invest_td1">pending payouts</td>
+                                    <td class="invest_td1">: $0.00 USD</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 col-lg-4 col-xl-3 col-sm-6 col-12">
+            <div class="investment_box_wrapper color_5 float_left">
+                <a href="#">
+                    <div class="investment_icon_wrapper float_left">
+                        <i class="far fa-money-bill-alt"></i>
+                        <h1>referral</h1>
+                    </div>
+
+                    <div class="invest_details float_left">
+                        <table class="invest_table">
+                            <tbody>
+                                <tr>
+                                    <td class="invest_td1">interest today</td>
+                                    <td class="invest_td1"> : 11 nos</td>
+                                </tr>
+                                <tr>
+                                    <td class="invest_td1">interest this week</td>
+                                    <td class="invest_td1">: nos</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 col-lg-4 col-xl-3 col-sm-6 col-12">
+            <div class="investment_box_wrapper color_6 float_left">
+                <a href="#">
+                    <div class="investment_icon_wrapper float_left">
+                        <i class="far fa-money-bill-alt"></i>
+                        <h1>sampal</h1>
+                    </div>
+
+                    <div class="invest_details float_left">
+                        <table class="invest_table">
+                            <tbody>
+                                <tr>
+                                    <td class="invest_td1">interest today</td>
+                                    <td class="invest_td1"> : 11 nos</td>
+                                </tr>
+                                <tr>
+                                    <td class="invest_td1">interest this week</td>
+                                    <td class="invest_td1">: nos</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--  account wrapper end -->
 
 @endsection
 
 @section('script')
-    <script>
-        
-    </script>
+<script>
+
+</script>
 @endsection
