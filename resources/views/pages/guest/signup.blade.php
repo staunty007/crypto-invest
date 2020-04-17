@@ -300,17 +300,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="form-field form-m-bttm">
-                                <select name="package" class="form-control required">
-                                    <option disabled value="">Select Package</option>
-                                    <option value='basic'>Basic Plan</option>
-                                    <option value='trading'>Trading Plan</option>
-                                    <option value='premium'>Premium Plan</option>
-                                    <option value='vip'>VIP Plan</option>
-                                </select>
-                            </div>
-                        </div>
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <div class="form-field form-m-bttm">

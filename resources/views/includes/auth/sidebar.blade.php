@@ -34,6 +34,18 @@
                     </ul>
                 </li>
             </ul>
+            <ul class="u-list crm_drop_second_ul">
+                <li class="crm_navi_icon">
+                    <div class="c-menu__item__inner"><a href="transfer_fund.html"><i
+                                class="flaticon-progress-report"></i></a>
+                    </div>
+                </li>
+                <li class="c-menu__item crm_navi_icon_cont">
+                    <a href="transfer_fund.html">
+                        <div class="c-menu-item__title">Tansactions</div>
+                    </a>
+                </li>
+            </ul>
             <ul class="u-list crm_drop_second_ul d-none">
                 <li class="crm_navi_icon">
                     <div class="c-menu__item__inner"><a href="make_deposit.html"><i
@@ -79,18 +91,6 @@
                             <a href="transfer_fund.html"> <i class="fa fa-circle"></i>fund transfer</a>
                         </li>
                     </ul>
-                </li>
-            </ul>
-            <ul class="u-list crm_drop_second_ul d-none">
-                <li class="crm_navi_icon">
-                    <div class="c-menu__item__inner"><a href="transfer_fund.html"><i
-                                class="flaticon-progress-report"></i></a>
-                    </div>
-                </li>
-                <li class="c-menu__item crm_navi_icon_cont">
-                    <a href="transfer_fund.html">
-                        <div class="c-menu-item__title">fund transfer</div>
-                    </a>
                 </li>
             </ul>
             <ul class="u-list crm_drop_second_ul d-none">

@@ -194,7 +194,7 @@
                     </div>
                     <ul>
                         <li><i class="fa fa-laptop" aria-hidden="true"></i> Instant withdrawal </li>
-                        <li><i class="fa fa-money" aria-hidden="true"></i> Capital included</li>
+                        <li><i class="fa fa-money" aria-hidden="true"></i> Capital excluded</li>
                         <li><i class="fa fa-assistive-listening-systems" aria-hidden="true"></i> 24/7 live support</li>
                     </ul>
                 </div>
@@ -209,7 +209,7 @@
                             <h3>Premium Plan</h3>
                         </div>
                         <div class="p-percentage">
-                            <h1 class="percent">137%</h1>
+                            <h1 class="percent">13.7%</h1>
                         </div>
                         <div class="hours">
                             <h5>After 14 Days</h5>
@@ -245,7 +245,7 @@
                         </div>
                         <div class="price">
                             <h5>Min invest 1 BTC</h5>
-                            <h5>Max invest 350 BTC</h5>
+                            <h5>Max invest 3 BTC</h5>
                         </div>
                         <!-- <a href="#" class="cta">Invest Now</a> -->
                     </div>

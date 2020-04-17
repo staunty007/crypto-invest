@@ -32,7 +32,7 @@
 1.Theme default CSS
 --------------------------*/
 body, html {
-	font-family: 'Lato';
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 	font-size: 16px;
 	line-height: 24px;
 	color: #797979;

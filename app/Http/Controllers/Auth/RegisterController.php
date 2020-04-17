@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -53,7 +54,6 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'package' => ['required'],
             'gender' => ['required'],
             'country' => ['required', 'string'],
         ]);
@@ -67,16 +67,25 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $store = User::create([
             'name' => $data['name'],
             'username' => $data['username'],
             'email' => $data['email'],
             'gender' => $data['gender'],
             'phone' => $data['phone'],
-            'country' => strtolower($data['country']),
             'password' => Hash::make($data['password']),
-            'package' => $data['package'],
+            'status' => 0,
         ]);
+        
+        DB::table('users_info')->insert([
+            'user_id' => $store['id'],
+            'country' => strtolower($data['country']),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        return $store;
+
     }
 
     public function showRegistrationForm()

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Package;
 use Illuminate\Http\Request;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -14,6 +16,7 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('nopackage')->except('plans');
     }
 
     /**
@@ -35,7 +38,9 @@ class HomeController extends Controller
 
     public function plans()
     {
-        return view('pages.auth.plans');
+        $packages = Package::all();
+        return view('pages.auth.plans', compact('packages'));
         //return view('home');
     }
+
 }

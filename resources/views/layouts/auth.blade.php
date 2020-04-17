@@ -12,6 +12,7 @@
     @include('includes.auth.head')
     <!--favicon-->
     <link rel="shortcut icon" type="image/png" href="{{ URL::asset('assets/images/ccfavi.png') }}" />
+
 </head>
 <!-- color picker start -->
 
