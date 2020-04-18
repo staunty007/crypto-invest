@@ -41,7 +41,7 @@
                     </div>
                 </li>
                 <li class="c-menu__item crm_navi_icon_cont">
-                    <a href="transfer_fund.html">
+                    <a href="{{ route('my-transactions') }}">
                         <div class="c-menu-item__title">Tansactions</div>
                     </a>
                 </li>

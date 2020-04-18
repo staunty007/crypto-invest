@@ -24,19 +24,11 @@
                         <table class="invest_table">
                             <tbody>
                                 <tr>
-                                    <td class="invest_td1">Active Deposit</td>
+                                    <td class="invest_td1">New Deposit</td>
                                     <td class="invest_td1"> : $0.00 USD</td>
                                 </tr>
                                 <tr>
-                                    <td class="invest_td1">New Deposit</td>
-                                    <td class="invest_td1">: $0.00 USD</td>
-                                </tr>
-                                <tr>
-                                    <td class="invest_td1">Matured Deposit</td>
-                                    <td class="invest_td1">: $0.00 USD</td>
-                                </tr>
-                                <tr>
-                                    <td class="invest_td1">Released Deposit</td>
+                                    <td class="invest_td1">Pending Deposit</td>
                                     <td class="invest_td1">: $0.00 USD</td>
                                 </tr>
                             </tbody>
@@ -102,19 +94,19 @@
                 <a href="#">
                     <div class="investment_icon_wrapper float_left">
                         <i class="far fa-money-bill-alt"></i>
-                        <h1>sampal</h1>
+                        <h1>Wallet</h1>
                     </div>
 
                     <div class="invest_details float_left">
                         <table class="invest_table">
                             <tbody>
                                 <tr>
-                                    <td class="invest_td1">interest today</td>
-                                    <td class="invest_td1"> : 11 nos</td>
+                                    <td class="invest_td1">Available</td>
+                                    <td class="invest_td1"> : ${{ number_format(auth()->user()->wallet->active_balance, 2) }} USD</td>
                                 </tr>
                                 <tr>
-                                    <td class="invest_td1">interest this week</td>
-                                    <td class="invest_td1">: nos</td>
+                                    <td class="invest_td1">Profits</td>
+                                    <td class="invest_td1">: ${{ number_format(auth()->user()->wallet->profit_balance, 2) }} USD</td>
                                 </tr>
 
                             </tbody>

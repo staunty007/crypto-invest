@@ -42,6 +42,12 @@ class HomeController extends Controller
         //return view('home');
     }
 
+    public function transactionList()
+    {
+        $transactions = Transaction::where('user_id', auth()->id())->with('package:id,name','platform:id,name')->get();
+        return view('pages.auth.transaction', compact('transactions'));
+    }
+
     public function plans()
     {
         $packages = Package::all();

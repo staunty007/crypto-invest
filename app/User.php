@@ -42,6 +42,10 @@ class User extends Authenticatable
         return $this->hasOne(UserInfo::class);
     }
 
+    public function wallet() {
+        return $this->hasOne(Wallet::class);
+    }
+
     public static function boot()
     {
         parent::boot();

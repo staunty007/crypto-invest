@@ -17,6 +17,7 @@ class CreateTransactionsTable extends Migration
             $table->id();
             $table->unsignedInteger('user_id');
             $table->string('description')->nullable();
+            $table->string('transaction_ref');
             $table->unsignedInteger('package_id');
             $table->unsignedInteger('platform_id');
             $table->float('amount')->nullable();
