@@ -5,6 +5,8 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use App\Package;
+use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class PopulatePackageAndPaymentPlatform extends Command
 {
@@ -13,7 +15,7 @@ class PopulatePackageAndPaymentPlatform extends Command
      *
      * @var string
      */
-    protected $signature = 'package:payment';
+    protected $signature = 'populate:data';
 
     /**
      * The console command description.
@@ -118,5 +120,26 @@ class PopulatePackageAndPaymentPlatform extends Command
         ]);
 
         $this->info('Payment Platforms Populated');
+        $this->info('Starting Poplutation of User');
+
+        $user = User::create([
+            'name' => "John Doe",
+            'username' => "johnny007",
+            "role" => "user",
+            'email' => "john@yahoo.io",
+            'gender' => "male",
+            'phone' => "09083968639",
+            'password' => Hash::make('password'),
+            'status' => 0,
+        ]);
+
+        DB::table('users_info')->insert([
+            'user_id' => $user['id'],
+            'country' => strtolower('Nigeria'),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        $this->info('User Populated');
     }
 }

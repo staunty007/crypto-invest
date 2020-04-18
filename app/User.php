@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Wallet;
 
 class User extends Authenticatable
 {
@@ -16,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','username','phone','gender','country','status','package',
+        'name', 'email', 'password','username','role','phone','gender','country','status','package',
     ];
 
     /**
@@ -39,5 +40,16 @@ class User extends Authenticatable
 
     public function info() {
         return $this->hasOne(UserInfo::class);
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($model) {
+            Wallet::create([
+                'user_id' => $model->id
+            ]);
+        });
     }
 }

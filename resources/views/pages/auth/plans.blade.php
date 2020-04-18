@@ -9,8 +9,13 @@
         font-weight: bold;
     }
 
-    .nav-pills .tab-link .active {
-        color: #212529 !important;
+    .nav-pills a:hover {
+        color: grey;
+    }
+
+    .nav-pills .active {
+        color: #fff !important;
+        background: grey !important;
     }
 
 </style>
@@ -47,7 +52,8 @@
                     <div class="about_btn plans_btn">
                         <ul>
                             <li>
-                                <a href="#" data-toggle="modal" data-target="#staticBackdrop">Choose</a>
+                                <a href="" class="select-platform" data-id="{{ $package->id }}"
+                                    data-name="{{ $package->name }}">Choose</a>
                             </li>
                         </ul>
                     </div>
@@ -91,10 +97,12 @@
                                         <div class="col-md-8">
                                             <div class="card-body">
                                                 <h5 class="card-title">BTC Wallet Address</h5>
-                                                <p class="card-text mb-4">
+                                                <p class="card-text mb-2">
                                                     <code>16AU6QyvnoNdbCACQAoGmRSDW59gRAMASB</code>
                                                 </p>
-                                                <button class="btn btn-success btn-sm">Confirm Payment</button>
+                                                <button class="btn btn-success btn-sm confirm-pay" data-id="1">Confirm
+                                                    Payment</button>
+                                                <p class="status-1"></p>
                                             </div>
                                         </div>
                                     </div>
@@ -111,9 +119,11 @@
                                         <div class="col-md-8">
                                             <div class="card-body">
                                                 <h5 class="card-title">Perfect Pay</h5>
-                                                <p class="card-text mb-4"><code>U21776834 (USD)</code>
+                                                <p class="card-text mb-2"><code>U21776834 (USD)</code>
                                                 </p>
-                                                <button class="btn btn-success btn-sm">Confirm Payment</button>
+                                                <button class="btn btn-success btn-sm confirm-pay" data-id="2">Confirm
+                                                    Payment</button>
+                                                <p class="status-2"></p>
                                             </div>
                                         </div>
                                     </div>
@@ -133,15 +143,18 @@
                                                 <h5 class="card-title">CashApp</h5>
                                                 <p class="card-text"><code>$Holonunu666</code>
                                                 </p>
-                                                <small class="text-secondary mb-5">Provide a Screenshot of Payment for
+                                                <small class="text-secondary mb-2">Provide a Screenshot of Payment for
                                                     Confirmation</small>
                                                 <div class="row mt-1">
                                                     <div class="col-md-5">
                                                         <input type="file" name="" class="form-control" id="">
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <button class="btn btn-success btn-sm mt-1">Confirm
+                                                        <button class="btn btn-success btn-sm mt-1 confirm-pay" data-id="3">Confirm
                                                             Payment</button>
+                                                        </div>
+                                                    <div class="col-md-12">
+                                                        <p class="status-3"></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -155,16 +168,54 @@
                 </div>
             </div>
             <div class="modal-footer d-flex justify-content-between">
-                <h5 class="text-dark text-uppercase font-weight-bold">Choose Payment Platform</h5>
+                <h5 class="text-dark text-uppercase font-weight-bold" id="package-name"></h5>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
 </div>
 
-  
+
 @endsection
 
 
 @section('script')
+<script>
+    let packageId, packageName, platformId;
+    $(document).on('click', '.select-platform', function (e) {
+        e.preventDefault()
+        packageId = $(this).data('id')
+        packageName = $(this).data('name');
+        $("#package-name").html(packageName);
+        $("#staticBackdrop").modal('show');
+    });
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $(document).on('click', '.confirm-pay', function (e) {
+        e.preventDefault();
+        let confirmBtn = this
+        platformId = $(confirmBtn).data('id');
+        const response = ".status-" + platformId
+        $(response).html("");
+        $(confirmBtn).html("Confirming...")
+
+        $.post('/confirm-payment', {package_id : packageId,platform_id: platformId })
+        .done( function (data) {
+               console.log(data)
+                $(confirmBtn).html("Confirmed").attr('disabled', true);
+                $(response).html(data.success);
+            })
+        .fail( function(xhr, textStatus, errorThrown) {
+            $(confirmBtn).html("Confirm Payment")
+            $(response).html(xhr.responseJSON.message);
+            console.log(xhr.responseJSON.message);
+        });
+    });
+
+</script>
 @endsection

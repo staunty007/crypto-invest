@@ -8,6 +8,7 @@
     <meta name="keywords" content="Savehyip" />
     <meta name="author" content="" />
     <meta name="MobileOptimized" content="320" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <!--Template style -->
     @include('includes.auth.head')
     <!--favicon-->

@@ -100,7 +100,7 @@
  <div class="cp_navi_main_wrapper inner_header_wrapper dashboard_header_middle float_left" style="height: 75px;margin-top: -10px;padding-top: 15px;">
     <div class="container-fluid">
           <div class="cp_logo_wrapper">
-            <a href="index.html">
+            <a href="/app">
                 <img src="{{ URL::asset('assets/images/ccl.png') }}" height="60" width="207" alt="logo">
             </a>
         </div>
