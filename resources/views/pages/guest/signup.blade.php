@@ -5,7 +5,7 @@
     <div class="container">
         <div class="tab-custom">
             <!-- Tab panes -->
-            <div class="row" style="margin-top: -70px;">
+            <div class="row" style="margin-top: -60px;">
                 <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
                     <h3 class="heading-lead center">Register An Account</h3>
                     <form class="form-signup" method="POST" action="{{ route('register') }}">
@@ -332,16 +332,10 @@
                             Already registered?
                             <a href="/login">Login here</a>
                         </p>
+                    </form>
                 </div>
-                </form>
             </div>
         </div>
     </div>
 </div>
-@endsection
-
-@section('script')
-    <script>
-        
-    </script>
 @endsection

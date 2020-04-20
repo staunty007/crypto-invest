@@ -17,29 +17,6 @@
 <body>
     <!-- Header -->
     <header class="site-header header-s1 is-sticky">
-
-        @if (Request::path() == '/')
-        <div class="btc-ticker">
-            <div class="ticker-item">
-                <div class="btcwdgt-price" bw-cur="usd"></div>
-            </div>
-            <div class="ticker-item">
-                <div class="ethwdgt-price" bw-cur="usd"></div>
-            </div>
-            <div class="ticker-item">
-                <div class="bchwdgt-price" bw-cur="usd"></div>
-            </div>
-            <div class="ticker-item">
-                <div class="xlmwdgt-price" bw-cur="usd"></div>
-            </div>
-            <div class="ticker-item">
-                <div class="usdpaxwdgt-price" bw-cur="usd"></div>
-            </div>
-
-        </div>
-        </div>
-        @endif
-        <!-- End BTC Ticker -->
         <!-- Navbar -->
         @include('includes.guest.navbar')
         <!-- End Navbar -->

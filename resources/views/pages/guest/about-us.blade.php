@@ -72,27 +72,27 @@
     </div>
 </div>
 <!--End Section -->
-<div class="section-white">
-    <div class="div-center">
-        <div class="flex-horizontal margin-36">
-            <div class="div-block-16">
-                <div id="lottie-logo" class="div-block-18"><img src="images/feature_phone.png" alt="" class="image-27">
-                </div>
-            </div>
-            <div class="div-block-17">
-                <div class="header-24 mb-36 no-mt"><strong class="header-24">We’re on a mission to fundamentally
-                        transform what investment products people have access to on a global scale and believe
-                        cryptocurrencies are the best medium to achieve that.</strong></div>
-                <div class="text-18">We’re a diverse team of hackers, technologists, and product people that want to
+<div class="section section-pad cta-section light has-bg dark-filter">
+    <div class="container">
+        <div class="row text-left">
+            <div class="col-md-12">
+                <h4>We’re on a mission to fundamentally
+                    transform what investment products people have access to on a global scale and believe
+                    cryptocurrencies are the best medium to achieve that.</h4>
+                    <br>
+                    <p class="" style="line-height: 23px;">
+                        We’re a diverse team of hackers, technologists, and product people that want to
                     help perpetuate the greatest wealth redistribution history. We love what we do and are deeply
                     dedicated to helping the world and building an amazing company.<br>‍<br>Interested in what we’re
-                    building? Email us at<a href="mailto:support@crystalcapital.co" class="text-18--link">
+                    building? Email us at<a href="mailto:support@crystalcapital.co" class="text-dark">
                         support@crystalcapital.co</a> with your resume. We’re looking for entrepreneurs, coders, and
-                    rule-breakers that want to change the world.<br></div>
+                    rule-breakers that want to change the world.
+                    </p>
             </div>
         </div>
     </div>
 </div>
+
 
 <!--End Section -->
 <!--Section -->
@@ -111,7 +111,7 @@
             <div class="col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2 res-m-bttm">
                 <div class="team-member">
                     <div class="team-thumb">
-                        <img src="/images/Harlan.jpeg" alt="team-thumb">
+                        <img src="/images/bill_larson.jpeg" alt="team-thumb">
                         <div class="team-thumb-overlay">
                             <ul class="team-social">
                                 <li><a href="#"><span class="fa fa-facebook"></span></a></li>
@@ -122,7 +122,7 @@
                         </div>
                     </div>
                     <div class="team-info">
-                        <h5 class="team-name">Jason Wen</h5>
+                        <h5 class="team-name">Bill Larson</h5>
                         <span class="team-title">Co-Founder|CFO</span>
                     </div>
                 </div>
@@ -130,7 +130,7 @@
             <div class="col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2 res-m-bttm">
                 <div class="team-member">
                     <div class="team-thumb">
-                        <img src="/images/Alex-Greg.jpeg" alt="team-thumb">
+                        <img src="/images/Alex-Greg.jpeg" style="height: 359px;width: 359px;" alt="team-thumb">
                         <div class="team-thumb-overlay">
                             <ul class="team-social">
                                 <li><a href="#"><span class="fa fa-facebook"></span></a></li>

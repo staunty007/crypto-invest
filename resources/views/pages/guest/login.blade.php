@@ -13,32 +13,36 @@
                         <div class="form-group">
                             <div class="form-field form-m-bttm">
                                 <input name="email" type="email" placeholder="Email *"
-                                    class="form-control required email" value="{{ old('email') }}"
-                                     required />
+                                    class="form-control required email" value="{{ old('email') }}" required />
                             </div>
                             @error('email')
-                                <small class="text-danger">{{ $message }}</small>
+                            <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
                         <div class="form-group">
                             <div class="form-field">
                                 <input name="password" type="password" placeholder="Password *"
-                                    class="form-control required"
-                                    required />
+                                    class="form-control required" required />
                             </div>
                             @error('password')
-                                <small class="text-danger">{{ $message }}</small>
+                            <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
                         <button type="submit" class="btn btn-alt btn-block">Log In</button>
                         <span class="gaps"></span>
-                        <p class="small">Not registered? <a href="/register" >Register</a>
-                        </p>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p class="small">Not registered? <a href="/register">Register</a> </p>
+                            </div>
+                            <div class="col-md-4 col-md-offset-4">
+                                <p class="small"> <a href="/password/reset">Forgot Password</a></p>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
-        <div style="margin-top: 70px;"></div>
     </div>
 </div>
+<div style="margin-top: 70px;"></div>
 @endsection

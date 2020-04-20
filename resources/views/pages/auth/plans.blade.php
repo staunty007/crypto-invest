@@ -44,9 +44,9 @@
                         <h1><a href="#">{{ $package->name }}</a></h1>
                         <p> {{ $package->rate }}% for {{ $package->time_of_cashout }}
                             <br> Minimum Invest
-                            <br> {{ $package->min_invest }}
+                            <br> {{ is_numeric($package->min_invest) ? '$'.number_format($package->min_invest) : $package->min_invest }}
                             <br> Maximum Invest
-                            <br> {{ $package->max_invest }}
+                            <br>{{ is_numeric($package->max_invest) ? '$'.number_format($package->max_invest) : $package->max_invest }}
                             <br> Capital {{ $package->capital == true ? 'Included' : 'Excluded' }}</p>
                     </div>
                     <div class="about_btn plans_btn">
@@ -79,7 +79,7 @@
                                 aria-selected="true">BTC</a>
                             <a class="nav-link tab-link" id="v-pills-profile-tab" data-toggle="pill"
                                 href="#v-pills-profile" role="tab" aria-controls="v-pills-profile"
-                                aria-selected="false">Perfect Pay</a>
+                                aria-selected="false">Perfect Money</a>
                             <a class="nav-link tab-link" id="v-pills-messages-tab" data-toggle="pill"
                                 href="#v-pills-messages" role="tab" aria-controls="v-pills-messages"
                                 aria-selected="false">Cashapp</a>
@@ -118,7 +118,7 @@
                                         </div>
                                         <div class="col-md-8">
                                             <div class="card-body">
-                                                <h5 class="card-title">Perfect Pay</h5>
+                                                <h5 class="card-title">Perfect Money</h5>
                                                 <p class="card-text mb-2"><code>U21776834 (USD)</code>
                                                 </p>
                                                 <button class="btn btn-success btn-sm confirm-pay" data-id="2">Confirm
