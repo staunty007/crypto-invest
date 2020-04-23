@@ -108,7 +108,7 @@
         </div>
         <div class="gaps size-3x"></div>
         <div class="row text-center">
-            <div class="col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2 res-m-bttm">
+            <div class="col-md-3 col-md-offset-0 col-sm-8 col-sm-offset-2 res-m-bttm">
                 <div class="team-member">
                     <div class="team-thumb">
                         <img src="/images/bill_larson.jpeg" alt="team-thumb">
@@ -127,10 +127,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2 res-m-bttm">
+            <div class="col-md-3 col-md-offset-0 col-sm-8 col-sm-offset-2 res-m-bttm">
                 <div class="team-member">
                     <div class="team-thumb">
-                        <img src="/images/Alex-Greg.jpeg" style="height: 359px;width: 359px;" alt="team-thumb">
+                        <img src="/images/Alex-Greg.jpeg" style="height: 260px;width: 359px;" alt="team-thumb">
                         <div class="team-thumb-overlay">
                             <ul class="team-social">
                                 <li><a href="#"><span class="fa fa-facebook"></span></a></li>
@@ -147,7 +147,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2 res-m-bttm">
+            <div class="col-md-3 col-md-offset-0 col-sm-8 col-sm-offset-2 res-m-bttm">
                 <div class="team-member">
                     <div class="team-thumb">
                         <img src="/images/Harlan.jpeg" alt="team-thumb">
@@ -163,6 +163,26 @@
                     <div class="team-info">
                         <h5 class="team-name">Harlan B. Evans</h5>
                         <span class="team-title">Co-Founder|CTO</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-md-offset-0 col-sm-8 col-sm-offset-2 res-m-bttm">
+                <div class="team-member">
+                    <div class="team-thumb">
+                        <img src="/images/jason-wen.jpeg" alt="team-thumb">
+                        <div class="team-thumb-overlay">
+                            <ul class="team-social">
+                                <li><a href="#"><span class="fa fa-facebook"></span></a></li>
+                                <li><a href="#"><span class="fa fa-twitter"></span></a></li>
+                                <li><a href="#"><span class="fa fa-instagram"></span></a></li>
+                                <li><a href="#"><span class="fa fa-telegram"></span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h5 class="team-name">Jason Wen</h5>
+                        <span class="team-title">Funds Manager</span>
                     </div>
                 </div>
             </div>

@@ -27,7 +27,7 @@
             <div class="col-md-3 col-sm-6 res-m-bttm">
                 <div class="box box-alt-bg round shadow">
                     <img src="images/box-icon-c.png" alt="box-icon" class="box-icon" />
-                    <h6 class="ucap">INSTANT TRADING</h6>
+                    <h6 class="ucap">INSTANT WITHDRAWAL</h6>
                     <!-- <p class="small">
                 Dolore magna aliqa. Ut enim ad minim venim, quis.
               </p> -->

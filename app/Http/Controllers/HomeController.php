@@ -32,6 +32,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        //return Wallet::where('user_id', 1)->first()['profit_balance'];
         return view('pages.auth.index');
         //return view('home');
     }
@@ -85,7 +86,8 @@ class HomeController extends Controller
             'user_id' => "1",
             'description' => "BTC Payment",
             'amount' => "35",
-            'status' => "SUCCESSFUL"
+            'status' => "SUCCESSFUL",
+            'transaction_ref' => Transaction::find(1)['transaction_ref']
         ];
 
         Transaction::approveUserPayment($payload);

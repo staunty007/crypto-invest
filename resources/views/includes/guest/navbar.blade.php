@@ -2,9 +2,8 @@
     <div class="container relative">
         <!-- Logo -->
         <a class="navbar-brand" href="/">
-            <img class="logo logo-dark" alt="logo" src="assets/images/ccl.png" />
-            <!-- <img class="logo logo-dark" alt="logo" src="assets/images/cclogo.png" /> -->
-            <img class="logo logo-light" alt="logo" src="assets/images/cclogo.png" />
+            <img class="logo logo-dark" alt="logo" src="{{ URL::asset('/assets/images/ccl.png') }}" />
+            <img class="logo logo-light" alt="logo" src="{{ URL::asset('/assets/images/cclogo.png') }}" />
         </a>
         <!-- #end Logo -->
         <div class="navbar-header">

@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Wallet;
 use Illuminate\Support\Str;
+use App\ManageProfit;
 
 class Transaction extends Model
 {
@@ -14,7 +15,7 @@ class Transaction extends Model
     ];
 
     public static function approveUserPayment($data) {
-        $approve = self::where('id', $data['user_id'])->update([
+        $approve = self::where('transaction_ref', $data['transaction_ref'])->update([
             'description' => $data['description'],
             'amount' => $data['amount'],
             'status' => $data['status']
@@ -22,6 +23,8 @@ class Transaction extends Model
         
         if($approve) {
             Wallet::addToUserWallet($data);
+            $payment = self::where('transaction_ref', $data['transaction_ref'])->first();
+            ManageProfit::userSetup($data, $payment);
         }
     }
 

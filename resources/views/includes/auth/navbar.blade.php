@@ -1,5 +1,5 @@
 <nav class="cd-dropdown d-block d-sm-block d-md-block d-lg-none d-xl-none">
-    <h2><a href="index.html"> savehyip </a></h2>
+    <h2><a href="index.html"> crystalcapital </a></h2>
     <a href="#0" class="cd-close">Close</a>
      <ul class="cd-dropdown-content">
         <li>
@@ -8,92 +8,17 @@
             </form>
         </li> 
           <li class="has-children">
-            <a href="#">index</a>
+            <a href="#">My Account</a>
             <ul class="cd-secondary-dropdown icon_menu is-hidden">
                 <li class="go-back"><a href="#0">Menu</a></li>
-                <li><a href="index.html">index I</a></li>
-                <li><a href="index2.html">index II</a></li>
-                <li><a href="index3.html">index III</a></li>
+                <li><a href="{{ route('app') }}">Dashboard</a></li>
+                <li><a href="{{ route('profile') }}">My Profile</a></li>
+                <li><a href="{{ route('plans') }}">Choose Package</a></li>
             </ul>
         </li>
-        <li><a href="about_us.html"> about us </a></li>
-        <li><a href="investment.html"> investment plan </a></li>
-        <li><a href="faq.html"> FAQ </a></li>
-        <li class="has-children">
-          <a href="#">dashboard</a>
-            <ul class="cd-secondary-dropdown icon_menu is-hidden">
-                <li class="go-back"><a href="#0">Menu</a></li>
-                  <li>
-                  <a href="all_transactions.html">all transactions</a>
-                </li>
-                <li>
-                  <a href="banners.html">banners</a>
-                </li> 
-               <li>
-                  <a href="change_password.html">change password</a>
-                </li>
-                <li>
-                  <a href="change_pin.html">change pin</a>
-                </li>
-                <li>
-                  <a href="deposit_history.html">deposit history</a>
-              </li>
-                <li>
-                  <a href="deposit_list.html">deposit list</a>
-              </li>
-                <li>
-                  <a href="earnings_history.html">earnings history</a>
-              </li>
-                <li>
-                  <a href="email_notification.html">email notification</a>
-              </li>   
-                <li>
-                  <a href="exchange_history.html">exchange history</a>
-              </li>  
-                <li>
-                    <a href="exchange_money.html">exchange money</a>
-              </li> 
-                <li>
-                  <a href="make_deposit.html">make deposit</a>
-              </li> 	
-                <li>
-                  <a href="my_account.html">my account</a>
-              </li> 	
-                <li>
-                  <a href="payment_request.html">payment request</a>
-              </li> 	
-                <li>
-                  <a href="pending_history.html">pending history</a>
-              </li> 	
-                <li>
-                  <a href="referral_earnings.html">referral earnings</a>
-              </li> 	
-                <li>
-                  <a href="referrals.html">referrals</a>
-              </li> 
-                <li>
-                  <a href="tickets.html">tickets</a>
-              </li> 	
-                <li>
-                  <a href="transfer_fund.html">transfer fund</a>
-              </li>
-            <li>
-                  <a href="view_profile.html">view profile</a>
-              </li> 									
-          </ul>
-         </li>  
-            <li class="has-children">
-            <a href="#">blog</a>
-            <ul class="cd-secondary-dropdown icon_menu is-hidden">
-                <li class="go-back"><a href="#0">Menu</a></li>
-                <li><a href="blog_category.html">blog category</a></li>
-                <li><a href="blog_single.html">blog single</a></li>
-            </ul>
-        
-        </li>   
-        <li><a href="contact_us.html"> contact us </a></li>
-        <li><a href="login.html"> login </a></li>
-        <li><a href="register.html"> register </a></li>
+        <li><a href="{{ route('my-transactions') }}"> Transactions</a></li>
+        <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();"> Logout </a></li>
     </ul>
     <!-- .cd-dropdown-content -->
 </nav>
