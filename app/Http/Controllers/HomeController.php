@@ -11,6 +11,7 @@ use Error;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use App\Wallet;
+use App\ManageProfit;
 
 class HomeController extends Controller
 {
@@ -22,7 +23,7 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('nopackage')->except('plans','confirmPackagePayment','approvePayment');
+        $this->middleware('nopackage')->except('plans','confirmPackagePayment','approvePayment','getAllProfitManagements');
     }
 
     /**
@@ -78,6 +79,15 @@ class HomeController extends Controller
             $userPackage->update(['package_id' => $request->package_id]);
             return response()->json(['success'=>'Your Account will be credited soon. Thanks']);
         }
+    }
+
+    public function getAllProfitManagements() {
+        $users = Wallet::all();
+        $profits=  ManageProfit::all();
+        return [
+            'users' => $users,
+            'wallet' => $profits
+        ];
     }
     
     public function approvePayment(Request $request) {

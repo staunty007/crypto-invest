@@ -26,3 +26,4 @@ Route::get('/plans', 'HomeController@plans')->name('plans');
 Route::get('/my-transactions', 'HomeController@transactionList')->name('my-transactions');
 Route::post('/confirm-payment', 'HomeController@confirmPackagePayment')->name('confirm-package-payment');
 Route::get('/approve-payment', 'HomeController@approvePayment')->name('approve-payment');
+Route::get('/mgt-profit', 'HomeController@getAllProfitManagements');
