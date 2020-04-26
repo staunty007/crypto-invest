@@ -29,3 +29,11 @@ Route::get('/approve-payment', 'HomeController@approvePayment')->name('approve-p
 Route::get('/mgt-profit', 'HomeController@getAllProfitManagements');
 Route::get('/payment-info', 'HomeController@paymentInfo')->name('payment-info');
 Route::post('/update-payment-profile', 'HomeController@updatePaymentProfile')->name('update-payment-profile');
+
+Route::group(['prefix' => 'admin',  'middleware' => ['auth','isadmin',]], function() {
+    Route::get('/dashboard','AdminController@dashboard')->name('admin-dashboard');
+    Route::get('/transactions','AdminController@allTransactions')->name('all-transactions');
+    Route::get('/packages','AdminController@allPackages')->name('all-packages');
+    Route::get('/customers','AdminController@allCustomers')->name('all-customers');
+    Route::get('/active-subscribers','AdminController@activeSubscribedCustomers')->name('active-subscribers');
+});

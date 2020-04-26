@@ -128,6 +128,35 @@ class PopulatePackageAndPaymentPlatform extends Command
         ]);
 
         $this->info('Payment Platforms Populated');
+        $this->info('Starting Poplutation of Admin');
+        $admin = User::create([
+            'name' => "Admin Crystal",
+            'username' => "admin001",
+            "role" => "admin",
+            'email' => "admin@yahoo.io",
+            'gender' => "male",
+            'phone' => "02979097079",
+            'password' => Hash::make('password'),
+            'status' => 1,
+        ]);
+
+        DB::table('users_info')->insert([
+            'user_id' => $admin['id'],
+            'country' => strtolower('usa'),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('wallets')->insert([
+            'user_id' => $admin['id'],
+            'active_balance' => '1000000',
+            'profit_balance' => '0',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        
+        $this->info('Admin Populated');
+
         $this->info('Starting Poplutation of User');
 
         $user = User::create([
@@ -143,7 +172,7 @@ class PopulatePackageAndPaymentPlatform extends Command
 
         DB::table('users_info')->insert([
             'user_id' => $user['id'],
-            'country' => strtolower('Nigeria'),
+            'country' => strtolower('usa'),
             'created_at' => now(),
             'updated_at' => now(),
         ]);

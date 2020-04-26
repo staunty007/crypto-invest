@@ -3,10 +3,8 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\Auth;
-use App\Providers\RouteServiceProvider;
 
-class RedirectUserWithNoPackage
+class RedirectIfAdmin
 {
     /**
      * Handle an incoming request.
@@ -17,10 +15,9 @@ class RedirectUserWithNoPackage
      */
     public function handle($request, Closure $next)
     {
-
-        if(auth()->user()->status != 0){
+        if(auth()->user()->role == 'admin'){
             return $next($request);
-          }
-        return redirect(RouteServiceProvider::PLANS);
+        }
+        return redirect()->back();
     }
 }

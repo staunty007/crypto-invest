@@ -33,9 +33,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //return Wallet::where('user_id', 1)->first()['profit_balance'];
+        if(auth()->user()->role == 'admin') {
+            return view('pages.auth.admin.index');
+        }
         return view('pages.auth.index');
-        //return view('home');
+        
     }
 
     public function profile()

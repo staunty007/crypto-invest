@@ -12,6 +12,15 @@ class ManageProfit extends Model
         'duration_remaining','status',
     ];
 
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
+
+    public function wallet() {
+        return $this->belongsTo(Wallet::class , 'user_id', 'user_id');
+    }
+
     public static function userSetup($user, $payment) {
         $selectedPackage = Package::packageDetails($payment['package_id']);
         $startDate = date('Y-m-d H:i:s', strtotime($payment['updated_at']));
@@ -35,4 +44,5 @@ class ManageProfit extends Model
         $start = date('d-m-Y H:i:s',strtotime($array[1]));
         return round((strtotime($end) - strtotime($start)) /60);
     }
+    
 }

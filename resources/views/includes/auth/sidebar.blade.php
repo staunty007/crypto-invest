@@ -21,16 +21,23 @@
                 </li>
                 <li class="c-menu__item is-active has-sub crm_navi_icon_cont">
                     <a href="#">
-                        <div class="c-menu-item__title"><span>my account</span><i class="no_badge">5</i>
+                        <div class="c-menu-item__title"><span>my account</span>
                         </div>
                     </a>
                     <ul>
+                        @if (auth()->user()->role == 'admin')
+                        <li><a href="{{ route('admin-dashboard') }}"><i class="fa fa-circle"></i>Dashboard</a>
+                        </li>
+                        <li><a href="{{ route('profile') }}"><i class="fa fa-circle"></i> my profile</a>
+                        </li>
+                        @else
                         <li><a href="{{ route('app') }}"><i class="fa fa-circle"></i> Dashboard</a>
                         </li>
                         <li><a href="{{ route('profile') }}"><i class="fa fa-circle"></i> my profile</a>
                         </li>
                         <li><a href="{{ route('plans') }}"><i class="fa fa-circle"></i> Choose Package</a>
                         </li>
+                        @endif
                     </ul>
                 </li>
             </ul>
@@ -58,10 +65,40 @@
                     </a>
                 </li>
             </ul>
+            @if (auth()->user()->role == 'admin')
             <ul class="u-list crm_drop_second_ul">
                 <li class="crm_navi_icon">
-                    <div class="c-menu__item__inner"><a href="#"><i
-                                class="flaticon-movie-tickets"></i></a>
+                    <div class="c-menu__item__inner"><a href="all_transactions.html"><i class="flaticon-help"></i></a>
+                        <ul class="crm_hover_menu d-none">
+                        </ul>
+                    </div>
+                </li>
+                <li class="c-menu__item is-active has-sub crm_navi_icon_cont">
+                    <a href="#">
+                        <div class="c-menu-item__title"><span>Admin</span>
+                        </div>
+                    </a>
+                    <ul>
+                        <li><a href="{{ route('all-transactions') }}"><i class="fa fa-circle"></i> all transactions</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-circle"></i>Payment Requests</a>
+                        </li>
+                        <li><a href="{{ route('all-packages') }}"><i class="fa fa-circle"></i>Packages</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-circle"></i>Payment Platforms</a>
+                        </li>
+                        <li><a href="{{ route('all-customers') }}"><i class="fa fa-circle"></i>All Customers</a>
+                        </li>
+                        <li><a href="{{ route('active-subscribers') }}"><i class="fa fa-circle"></i>Subscribed
+                                Customers</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            @else
+            <ul class="u-list crm_drop_second_ul">
+                <li class="crm_navi_icon">
+                    <div class="c-menu__item__inner"><a href="#"><i class="flaticon-movie-tickets"></i></a>
                         <ul class="crm_hover_menu">
                             <li>
                                 <a href="#"> <i class="fa fa-circle"></i> payment request</a>
@@ -71,7 +108,7 @@
                 </li>
                 <li class="c-menu__item is-active has-sub crm_navi_icon_cont">
                     <a href="#">
-                        <div class="c-menu-item__title"><span>finance</span><i class="no_badge">5</i>
+                        <div class="c-menu-item__title"><span>finance</span>
                         </div>
                     </a>
                     <ul>
@@ -86,43 +123,8 @@
                     </ul>
                 </li>
             </ul>
-            <ul class="u-list crm_drop_second_ul d-none">
-                <li class="crm_navi_icon">
-                    <div class="c-menu__item__inner"><a href="all_transactions.html"><i
-                                class="flaticon-help"></i></a>
-                        <ul class="crm_hover_menu">
-                            <li><a href="all_transactions.html"><i class="fa fa-circle"></i> all transactions</a>
-                            </li>
-                            <li><a href="deposit_history.html"><i class="fa fa-circle"></i>deposit history</a>
-                            </li>
-                            <li><a href="pending_history.html"><i class="fa fa-circle"></i>pending history</a>
-                            </li>
-                            <li><a href="exchange_history.html"><i class="fa fa-circle"></i>exchange history</a>
-                            </li>
-                            <li><a href="earnings_history.html"><i class="fa fa-circle"></i>earning history</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="c-menu__item is-active has-sub crm_navi_icon_cont">
-                    <a href="all_transactions.html">
-                        <div class="c-menu-item__title"><span>reports</span><i class="no_badge purple">5</i>
-                        </div>
-                    </a>
-                    <ul>
-                        <li><a href="all_transactions.html"><i class="fa fa-circle"></i> all transactions</a>
-                        </li>
-                        <li><a href="deposit_history.html"><i class="fa fa-circle"></i>deposit history</a>
-                        </li>
-                        <li><a href="pending_history.html"><i class="fa fa-circle"></i>pending history</a>
-                        </li>
-                        <li><a href="exchange_history.html"><i class="fa fa-circle"></i>exchange history</a>
-                        </li>
-                        <li><a href="earnings_history.html"><i class="fa fa-circle"></i>earning history</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+            @endif
+
             <ul class="u-list crm_drop_second_ul d-none">
                 <li class="crm_navi_icon">
                     <div class="c-menu__item__inner"><a href="tickets.html"><i class="flaticon-file"></i></a>
@@ -168,8 +170,7 @@
             </ul>
             <ul class="u-list crm_drop_second_ul d-none">
                 <li class="crm_navi_icon">
-                    <div class="c-menu__item__inner"><a href="make_deposit.html"><i
-                                class="flaticon-profile"></i></a>
+                    <div class="c-menu__item__inner"><a href="make_deposit.html"><i class="flaticon-profile"></i></a>
                     </div>
                 </li>
                 <li class="c-menu__item crm_navi_icon_cont">
@@ -180,13 +181,13 @@
             </ul>
             <ul class="u-list crm_drop_second_ul">
                 <li class="crm_navi_icon">
-                    <div class="c-menu__item__inner"><a href="{{ route('logout') }}"><i
-                            class="flaticon-turn-off" onclick="event.preventDefault();
+                    <div class="c-menu__item__inner"><a href="{{ route('logout') }}"><i class="flaticon-turn-off"
+                                onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();"></i></a>
                     </div>
                 </li>
                 <li class="c-menu__item crm_navi_icon_cont">
-                    <a href="{{ route('logout') }}"  onclick="event.preventDefault();
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
                         <div class="c-menu-item__title">logout</div>
                     </a>
