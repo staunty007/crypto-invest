@@ -23,7 +23,7 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('nopackage')->except('plans','confirmPackagePayment','approvePayment','getAllProfitManagements');
+        $this->middleware('nopackage')->except('plans','paymentInfo','confirmPackagePayment','approvePayment','getAllProfitManagements','updatePaymentProfile');
     }
 
     /**
@@ -55,6 +55,21 @@ class HomeController extends Controller
         $packages = Package::all();
         return view('pages.auth.plans', compact('packages'));
         //return view('home');
+    }
+
+    public function updatePaymentProfile(Request $request)
+    {
+        UserInfo::where('user_id', auth()->id())
+            ->update([
+                'payment_type' => $request->payment_type,
+                'payment_address' => $request->payment_address
+            ]);
+        return redirect('plans');
+    }
+
+    public function paymentInfo() 
+    {
+        return view('pages.auth.payment-info');
     }
 
     public function confirmPackagePayment(Request $request)
@@ -91,9 +106,21 @@ class HomeController extends Controller
     }
     
     public function approvePayment(Request $request) {
+        //return ManageProfit::where('status',true)->where('duration_remaining','>', 0)->get();
+        // $manages = ManageProfit::where('status',true)->where('duration_remaining','>', 0)->get();
+        // $manages->map(function($manage) {
+        //     $remitAmount = $manage['assumed_profit'] / $manage['duration_in_minutes'];
+        //     $newDurationRemaining = $manage['duration_remaining'] - 1;
+        //     $wallet = Wallet::where('user_id', $manage['user_id']);
+        //     //return (float) $wallet->first()['profit_balance'] + (float) $remitAmount;
+        //     $wallet->update(['profit_balance' =>  $wallet->first()['profit_balance'] +  $remitAmount ]);
+        //     ManageProfit::where('user_id', $manage['user_id'])->update(['duration_remaining' => $newDurationRemaining]);
+        // });
+        //return $ans;
+
 
         $payload = [
-            'user_id' => "1",
+            'user_id' => auth()->id(),
             'description' => "BTC Payment",
             'amount' => "35",
             'status' => "SUCCESSFUL",

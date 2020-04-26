@@ -9,7 +9,7 @@
         <div class="col-md-12 col-lg-12 col-sm-12 col-12">
             <div class="sv_heading_wraper">
 
-                <h3>LAST 5 TRANSACTIONS</h3>
+                <h3>LAST TRANSACTIONS</h3>
 
             </div>
         </div>

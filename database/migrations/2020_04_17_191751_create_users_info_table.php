@@ -18,6 +18,8 @@ class CreateUsersInfoTable extends Migration
             $table->unsignedInteger('user_id');
             $table->string('country')->nullable();
             $table->unsignedInteger('package_id')->nullable();
+            $table->string('payment_type')->nullable();
+            $table->text('payment_address')->nullable();
             $table->timestamps();
         });
     }

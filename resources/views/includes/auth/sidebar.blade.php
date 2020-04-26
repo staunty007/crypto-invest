@@ -36,7 +36,7 @@
             </ul>
             <ul class="u-list crm_drop_second_ul">
                 <li class="crm_navi_icon">
-                    <div class="c-menu__item__inner"><a href="transfer_fund.html"><i
+                    <div class="c-menu__item__inner"><a href="{{ route('my-transactions') }}"><i
                                 class="flaticon-progress-report"></i></a>
                     </div>
                 </li>
@@ -48,47 +48,40 @@
             </ul>
             <ul class="u-list crm_drop_second_ul d-none">
                 <li class="crm_navi_icon">
-                    <div class="c-menu__item__inner"><a href="make_deposit.html"><i
+                    <div class="c-menu__item__inner"><a href="{{ route('payment-info') }}"><i
+                                class="flaticon-progress-report"></i></a>
+                    </div>
+                </li>
+                <li class="c-menu__item crm_navi_icon_cont">
+                    <a href="{{ route('payment-info') }}">
+                        <div class="c-menu-item__title">Payment Info</div>
+                    </a>
+                </li>
+            </ul>
+            <ul class="u-list crm_drop_second_ul">
+                <li class="crm_navi_icon">
+                    <div class="c-menu__item__inner"><a href="#"><i
                                 class="flaticon-movie-tickets"></i></a>
                         <ul class="crm_hover_menu">
                             <li>
-                                <a href="make_deposit.html"> <i class="fa fa-circle"></i>make deposit</a>
-                            </li>
-                            <li>
-                                <a href="deposit_list.html"> <i class="fa fa-circle"></i> deposit lists</a>
-                            </li>
-                            <li>
-                                <a href="payment_request.html"> <i class="fa fa-circle"></i> payment request</a>
-                            </li>
-                            <li>
-                                <a href="exchange_money.html"> <i class="fa fa-circle"></i>exchange money</a>
-                            </li>
-                            <li>
-                                <a href="transfer_fund.html"> <i class="fa fa-circle"></i>fund transfer</a>
+                                <a href="#"> <i class="fa fa-circle"></i> payment request</a>
                             </li>
                         </ul>
                     </div>
                 </li>
                 <li class="c-menu__item is-active has-sub crm_navi_icon_cont">
-                    <a href="make_deposit.html">
+                    <a href="#">
                         <div class="c-menu-item__title"><span>finance</span><i class="no_badge">5</i>
                         </div>
                     </a>
                     <ul>
                         <li>
-                            <a href="make_deposit.html"> <i class="fa fa-circle"></i>make deposit</a>
+                            <a href="{{ route('payment-info') }}"> <i class="fa fa-circle"></i> payment info</a>
                         </li>
+                    </ul>
+                    <ul>
                         <li>
-                            <a href="deposit_list.html"> <i class="fa fa-circle"></i> deposit lists</a>
-                        </li>
-                        <li>
-                            <a href="payment_request.html"> <i class="fa fa-circle"></i> payment request</a>
-                        </li>
-                        <li>
-                            <a href="exchange_money.html"> <i class="fa fa-circle"></i>exchange money</a>
-                        </li>
-                        <li>
-                            <a href="transfer_fund.html"> <i class="fa fa-circle"></i>fund transfer</a>
+                            <a href="#"> <i class="fa fa-circle"></i> payment request</a>
                         </li>
                     </ul>
                 </li>

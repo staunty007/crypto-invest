@@ -41,10 +41,10 @@ class ManageCustomerWalletProfit extends Command
     {
         $manages = ManageProfit::where('status',true)->where('duration_remaining','>', 0)->get();
         $manages->map(function($manage) {
-            $remitAmount = $manage['assumed_profit'] / $manage['duration_remaining'];
+            $remitAmount = $manage['assumed_profit'] / $manage['duration_in_minutes'];
             $newDurationRemaining = $manage['duration_remaining'] - 1;
             $wallet = Wallet::where('user_id', $manage['user_id']);
-            $wallet->update(['profit_balance' => (float) $wallet->first()['profit_balance'] + (float) $remitAmount ]);
+            $wallet->update(['profit_balance' =>  $wallet->first()['profit_balance'] +  $remitAmount ]);
             ManageProfit::where('user_id', $manage['user_id'])->update(['duration_remaining' => $newDurationRemaining]);
         });
     }

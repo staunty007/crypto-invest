@@ -83,6 +83,9 @@
                             <a class="nav-link tab-link" id="v-pills-messages-tab" data-toggle="pill"
                                 href="#v-pills-messages" role="tab" aria-controls="v-pills-messages"
                                 aria-selected="false">Cashapp</a>
+                            <a class="nav-link tab-link" id="v-pills-four-tab" data-toggle="pill"
+                                href="#v-pills-four" role="tab" aria-controls="v-pills-four"
+                                aria-selected="false">ETH</a>
                         </div>
                     </div>
                     <div class="col-8">
@@ -113,7 +116,7 @@
                                 <div class="card mb-3" style="max-width: 540px;">
                                     <div class="row no-gutters">
                                         <div class="col-md-4">
-                                            <img src="https://i.ibb.co/4jBFwyJ/perfect-pay.jpg" class="card-img"
+                                            <img src="https://pngimage.net/wp-content/uploads/2018/06/perfect-money-png-7.png" class="card-img"
                                                 alt="...">
                                         </div>
                                         <div class="col-md-8">
@@ -163,6 +166,27 @@
                                 </div>
 
                             </div>
+                            <div class="tab-pane fade show" id="v-pills-four" role="tabpanel"
+                            aria-labelledby="v-pills-four-tab">
+                            <div class="card mb-3" style="max-width: 540px;">
+                                <div class="row no-gutters">
+                                    <div class="col-md-4">
+                                        <img src="https://i.ibb.co/YdfCBNv/eth-bar-code.jpg" class="card-img" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">ETH Wallet Address</h5>
+                                            <p class="card-text mb-2">
+                                                <code>0x03579e429f4C1aEf19bB6cCccBC09F3C179C5065</code>
+                                            </p>
+                                            <button class="btn btn-success btn-sm confirm-pay" data-id="4">Confirm
+                                                Payment</button>
+                                            <p class="status-4"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -175,12 +199,63 @@
     </div>
 </div>
 
+  @if (auth()->user()->info->payment_type == null) 
+    <div class="modal fade" id="registerWallet" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title text-dark" id="staticBackdropLabel">Wallet Profile Registration </h5>
+            <button type="button" class="close" >
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('update-payment-profile') }}" method="POST">
+                    @csrf
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="">Payment Platform</label>
+                            <select id="pay-type" class="form-control pay-form select-form" name="payment_type">
+                                <option value="">Choose</option>
+                                <option value="BTC">BTC</option>
+                                <option value="ETH">ETH</option>
+                                <option value="BCH">BCH</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="">Wallet Address</label>
+                            <input type="text" class="form-control pay-form" id="pay-address" name="payment_address">
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <button type="submit" id="submit-profile" disabled class="btn btn-success">Submit to Proceed</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+    </div>
+  @endif
+
 
 @endsection
 
 
 @section('script')
 <script>
+    $('#registerWallet').modal('show');
+    setTimeout(() => {
+        $(".select-form").removeAttr("style")[1].remove()
+    }, 1000);
+
+    $(document).on('keyup change','.pay-form', function() {
+        if($('#pay-type option:selected').val() != "" && $("#pay-address").val() != "") {
+           $("#submit-profile").prop('disabled', false);
+        } else {
+           $("#submit-profile").prop('disabled', true);
+        }
+    });
+
     let packageId, packageName, platformId;
     $(document).on('click', '.select-platform', function (e) {
         e.preventDefault()

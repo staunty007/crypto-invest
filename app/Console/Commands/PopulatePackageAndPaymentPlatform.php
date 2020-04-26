@@ -116,6 +116,14 @@ class PopulatePackageAndPaymentPlatform extends Command
                 'status' => true,
                 'created_at' => now(),
                 'updated_at' => now(),
+            ],
+            [
+                'name' => 'ETH Wallet Trasfer',
+                'details_1' => '0x03579e429f4C1aEf19bB6cCccBC09F3C179C5065',
+                'details_2' => 'https://i.ibb.co/YdfCBNv/eth-bar-code.jpg',
+                'status' => true,
+                'created_at' => now(),
+                'updated_at' => now(),
             ]
         ]);
 
