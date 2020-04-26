@@ -81,7 +81,7 @@
                     <ul>
                         <li><a href="{{ route('all-transactions') }}"><i class="fa fa-circle"></i> all transactions</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-circle"></i>Payment Requests</a>
+                        <li><a href="{{ route('admin-payment-request') }}"><i class="fa fa-circle"></i>Payment Requests</a>
                         </li>
                         <li><a href="{{ route('all-packages') }}"><i class="fa fa-circle"></i>Packages</a>
                         </li>
@@ -101,7 +101,7 @@
                     <div class="c-menu__item__inner"><a href="#"><i class="flaticon-movie-tickets"></i></a>
                         <ul class="crm_hover_menu">
                             <li>
-                                <a href="#"> <i class="fa fa-circle"></i> payment request</a>
+                                <a href="{{ route('payment-request') }}"> <i class="fa fa-circle"></i> payment request form</a>
                             </li>
                         </ul>
                     </div>
@@ -118,7 +118,13 @@
                     </ul>
                     <ul>
                         <li>
-                            <a href="#"> <i class="fa fa-circle"></i> payment request</a>
+                            <a href="{{ route('payment-request') }}"> <i class="fa fa-circle"></i> payment request </a>
+                        </li>
+                    </ul>
+
+                    <ul>
+                        <li>
+                            <a href="{{ route('payment-request-form') }}"> <i class="fa fa-circle"></i> payment request form</a>
                         </li>
                     </ul>
                 </li>

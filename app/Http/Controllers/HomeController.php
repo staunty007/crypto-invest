@@ -12,6 +12,8 @@ use Exception;
 use Illuminate\Support\Facades\DB;
 use App\Wallet;
 use App\ManageProfit;
+use App\PaymentRequest;
+use Illuminate\Support\Str;
 
 class HomeController extends Controller
 {
@@ -37,7 +39,7 @@ class HomeController extends Controller
             return view('pages.auth.admin.index');
         }
         return view('pages.auth.index');
-        
+
     }
 
     public function profile()
@@ -74,6 +76,58 @@ class HomeController extends Controller
         return view('pages.auth.payment-info');
     }
 
+    public function paymentRequestForm()
+    {
+        $activeBalance = auth()->user()->wallet->active_balance + auth()->user()->wallet->profit_balance;
+        $activeBalance = number_format($activeBalance, 2, '.', '');
+        return view('pages.auth.payment-request-form' ,compact('activeBalance'));
+    }
+
+    public function paymentRequestLists()
+    {
+        $pay_requests = PaymentRequest::latest()->where('user_id', auth()->id())->get();
+        return view('pages.auth.payment-request' ,compact('pay_requests'));
+    }
+
+    public function makePaymentRequest(Request $request)
+    {
+        if (!$request->filled('amount')) {
+          return redirect('payment-request-form')->with('error', 'fill out amount field');
+        }
+        
+        //Check Customer Total Balance
+        $availableBal = auth()->user()->wallet->active_balance + auth()->user()->wallet->profit_balance;
+
+        if($request->amount > $availableBal) {
+            return redirect('payment-request-form')->with('error', 'insuffient Funds.');
+        }
+
+        //Check if Pending Request
+        $pendingRequest =  PaymentRequest::where('user_id', auth()->id())->where('status','!=','APPROVED')->count();
+
+        if($pendingRequest > 0){
+            return redirect('payment-request-form')->with('error', 'Pls hold . You have a Pending Payment Request');
+        }
+
+        //Check Runing PAckage
+        $packageStillActive = ManageProfit::latest()->where('user_id',$request->user()->id)->where('duration_remaining','>', 0)->count();
+
+        if($packageStillActive > 0){
+            return redirect('payment-request-form')->with('error', 'Package still active. Pls request when due.');
+        }
+
+        PaymentRequest::create([
+            'user_id' => auth()->id(),
+            'amount' => $request->amount,
+            'request_ref' => Str::random(10),
+            'payment_type' => $request->payment_type,
+            'payment_address' => $request->payment_address,
+            'status' => 'PROCESSING'
+        ]);
+
+        return redirect('payment-request-form')->with('success', 'Request Submitted, and will be Processed.');
+    }
+
     public function confirmPackagePayment(Request $request)
     {
         $userPackage = UserInfo::where('user_id', auth()->id());
@@ -108,19 +162,6 @@ class HomeController extends Controller
     }
     
     public function approvePayment(Request $request) {
-        //return ManageProfit::where('status',true)->where('duration_remaining','>', 0)->get();
-        // $manages = ManageProfit::where('status',true)->where('duration_remaining','>', 0)->get();
-        // $manages->map(function($manage) {
-        //     $remitAmount = $manage['assumed_profit'] / $manage['duration_in_minutes'];
-        //     $newDurationRemaining = $manage['duration_remaining'] - 1;
-        //     $wallet = Wallet::where('user_id', $manage['user_id']);
-        //     //return (float) $wallet->first()['profit_balance'] + (float) $remitAmount;
-        //     $wallet->update(['profit_balance' =>  $wallet->first()['profit_balance'] +  $remitAmount ]);
-        //     ManageProfit::where('user_id', $manage['user_id'])->update(['duration_remaining' => $newDurationRemaining]);
-        // });
-        //return $ans;
-
-
         $payload = [
             'user_id' => auth()->id(),
             'description' => "BTC Payment",

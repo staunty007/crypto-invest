@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ManageProfit;
 use App\Package;
+use App\PaymentRequest;
 use App\Transaction;
 use App\User;
 use App\Wallet;
@@ -39,5 +40,25 @@ class AdminController extends Controller
         $subscribers = ManageProfit::latest()->with('user:id,name','wallet:user_id,active_balance,profit_balance')->where('duration_remaining','!=', 0)->get();
        // return CarbonInterval::minutes($subscribers['duration_remaining'])->cascade(); 
         return view($this->view. 'active-subscribers', compact('subscribers'));
+    }
+
+    public function paymentRequestLists() {
+        $pay_requests = PaymentRequest::latest()->with('user:id,name')->get();
+        return view('pages.auth.admin.payment-request' ,compact('pay_requests'));
+    }
+
+    public function approvePayment(Request $request, $ref) {
+        $payment = Transaction::where('transaction_ref', $ref)->first();
+        $payload = [
+            'user_id' => $payment['user_id'],
+            'description' => "Package Payment",
+            'amount' => rand(100, 200),
+            'status' => "SUCCESSFUL",
+            'transaction_ref' => $ref
+        ];
+
+        Transaction::approveUserPayment($payload);
+
+       return redirect('all-transactions');
     }
 }

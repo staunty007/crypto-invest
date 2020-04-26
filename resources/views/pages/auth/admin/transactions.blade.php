@@ -53,7 +53,12 @@
                         <td>
                           <div class="btn-group">
                             @if ($tr->status != 'SUCCESSFUL')
-                              <button class="btn btn-success btn-sm">Approve</button>
+                              <a class="btn btn-success btn-sm" href="{{ route('approve-payment', $tr->transaction_ref) }}" onclick="event.preventDefault();
+                              document.getElementById('approve-form').submit();">Approve</a>
+                              <form id="approve-form" action="{{ route('approve-payment', $tr->transaction_ref) }}" method="POST" style="display: none;">
+                                @csrf
+                              </form>
+                              
                             @else
                               <span class="text-success font-weight-bold">APPROVED</span>
                             @endif
