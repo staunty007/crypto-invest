@@ -16,7 +16,7 @@
 
         </div>
         <div class="col-md-12 col-lg-12 col-sm-12 col-12">
-            <div class="card">
+            <div class="card mb-5">
                 <div class="card-body">
                     <nav class="bg-default">
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -24,22 +24,46 @@
                                 role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
                             <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile"
                                 role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
-                            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact"
-                                role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
                         </div>
                     </nav>
                     <div class="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                            
+                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                            aria-labelledby="nav-home-tab">
+                            <div class="row mt-1">
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <img class="card-img-top" src="https://picsum.photos/200/100" height="100" width="200" alt="Card image cap">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ auth()->user()->name }}</h5>
+                                            <p class="card-text">username : <span class="text-muted text-lowercase">{{ auth()->user()->username }}</span></p>
+                                            <p class="card-text">email : <span class="text-muted text-lowercase">{{ auth()->user()->email }}</span></p>
+                                            <p class="card-text">phone : <span class="text-muted text-lowercase">{{ auth()->user()->phone }}</span></p>
+                                            <p class="card-text">gender : <span class="text-muted text-lowercase">{{ auth()->user()->gender }}</span></p>
+                                            <p class="card-text">registered at: <span class="text-muted">{{ auth()->user()->created_at->diffForHumans() }}</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card">
+                                        <div class="card-body bg-light">
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">Wallet Balance: <span class="text-muted ml-2">${{ number_format(auth()->user()->wallet->active_balance , 2) }}</span></li>
+                                                <li class="list-group-item">Profit: <span class="text-muted ml-2">${{ number_format(auth()->user()->wallet->profit_balance , 2) }}</span></li>
+                                                <li class="list-group-item">Country: <span class="text-muted ml-2 text-uppercase">{{ auth()->user()->info->country }}</span></li>
+                                                <li class="list-group-item">Package: <span class="text-muted ml-2 text-uppercase">{{ App\Package::find( auth()->user()->info->package_id)['name'] }}</span></li>
+                                              </ul>
+                                        </div>
+                                      </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...
-                        </div>
-                        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...
+                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                            ...
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="view_profile_wrapper float_left">
+            <div class="view_profile_wrapper float_left d-none">
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-sm-12 col-12">
                         <div class="profile_view_img">

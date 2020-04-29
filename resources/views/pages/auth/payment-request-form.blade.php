@@ -8,7 +8,7 @@
         <div class="col-md-12 col-lg-12 col-sm-12 col-12">
             <div class="sv_heading_wraper">
 
-                <h3>Payment Request Form</h3>
+                <h3>Withdrawal Form</h3>
 
             </div>
         </div>

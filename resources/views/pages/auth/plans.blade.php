@@ -28,7 +28,12 @@
             <div class="col-md-12 col-lg-12 col-sm-12 col-12">
                 <div class="sv_heading_wraper">
 
-                    <h3>Packages</h3>
+                    <h3>Packages 
+                        @if(auth()->user()->info->package_id == NULL)
+                        <span class="text-info" >
+                        <small>Choose a package to access other pages</small></span>
+                    @endif
+                </h3>
 
                 </div>
 

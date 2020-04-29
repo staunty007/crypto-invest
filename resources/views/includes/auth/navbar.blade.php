@@ -1,12 +1,9 @@
 <nav class="cd-dropdown d-block d-sm-block d-md-block d-lg-none d-xl-none">
-    <h2 class="submenu-title"><a href="index.html"> crystalcapital </a></h2>
+    <h2 class="submenu-title">
+        <img src="{{ URL::asset('assets/images/ccl.png') }}" height="45" width="207" alt="logo">
+    </h2>
     <a href="#0" class="cd-close">Close</a>
     <ul class="cd-dropdown-content">
-        <li>
-            <form class="cd-search">
-                <input type="search" placeholder="Search...">
-            </form>
-        </li>
         <li class="has-children mt-3">
             <a href="#">My Account</a>
             <ul class="cd-secondary-dropdown icon_menu is-hidden">

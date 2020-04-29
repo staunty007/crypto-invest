@@ -22,7 +22,7 @@ Auth::routes();
 
 Route::get('/app', 'HomeController@index')->name('app');
 Route::get('/profile', 'HomeController@profile')->name('profile');
-Route::get('/plans', 'HomeController@plans')->name('plans');
+Route::get('/packages', 'HomeController@plans')->name('plans');
 Route::get('/my-transactions', 'HomeController@transactionList')->name('my-transactions');
 Route::post('/confirm-payment', 'HomeController@confirmPackagePayment')->name('confirm-package-payment');
 Route::get('/approve-payment', 'HomeController@approvePayment')->name('approve-payment');
@@ -30,8 +30,9 @@ Route::get('/mgt-profit', 'HomeController@getAllProfitManagements');
 Route::get('/payment-info', 'HomeController@paymentInfo')->name('payment-info');
 Route::post('/update-payment-profile', 'HomeController@updatePaymentProfile')->name('update-payment-profile');
 Route::get('/payment-request','HomeController@paymentRequestLists')->name('payment-request');
-Route::get('/payment-request-form','HomeController@paymentRequestForm')->name('payment-request-form');
+Route::get('/withdrawal','HomeController@paymentRequestForm')->name('payment-request-form');
 Route::post('/payment-request','HomeController@makePaymentRequest')->name('make-payment-request');
+Route::post('/cancel-request/{id}','HomeController@cancelPaymentRequest')->name('cancel-request');
 
 Route::group(['prefix' => 'admin',  'middleware' => ['auth','isadmin',]], function() {
     Route::post('/approve-payment/{ref}','AdminController@approvePayment')->name('approve-payment');

@@ -150,7 +150,7 @@
                         <!-- <a class="btn btn-outline btn-alt btn-md" href="/signup.html"
                   >My Account</a
                 > -->
-                        <a class="btn btn-outline btn-alt btn-md" href="signup.html">My Account</a>
+                        <a class="btn btn-outline btn-alt btn-md" href="/app">My Account</a>
                     </div>
                 </div>
             </div>

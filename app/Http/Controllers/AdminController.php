@@ -52,13 +52,13 @@ class AdminController extends Controller
         $payload = [
             'user_id' => $payment['user_id'],
             'description' => "Package Payment",
-            'amount' => rand(100, 200),
+            'amount' => $request->amount,
             'status' => "SUCCESSFUL",
             'transaction_ref' => $ref
         ];
 
         Transaction::approveUserPayment($payload);
 
-       return redirect('all-transactions');
+       return redirect('admin/transactions');
     }
 }

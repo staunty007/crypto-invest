@@ -3,7 +3,7 @@
         <nav class="c-menu js-menu" id="mynavi">
             <ul class="u-list crm_drop_second_ul">
                 <li class="crm_navi_icon">
-                    <div class="c-menu__item__inner"><a href="my_account.html"><i
+                    <div class="c-menu__item__inner"><a href="#"><i
                                 class="flaticon-four-grid-layout-design-interface-symbol"></i></a>
                         <ul class="crm_hover_menu">
                             <li><a href="{{ route('app') }}"><i class="fa fa-circle"></i> my account</a>
@@ -33,12 +33,38 @@
                         @else
                         <li><a href="{{ route('app') }}"><i class="fa fa-circle"></i> Dashboard</a>
                         </li>
-                        <li><a href="{{ route('profile') }}"><i class="fa fa-circle"></i> my profile</a>
+                        <li><a href="{{ route('profile') }}"><i class="fa fa-circle"></i> profile</a>
                         </li>
-                        <li><a href="{{ route('plans') }}"><i class="fa fa-circle"></i> Choose Package</a>
+                        <li><a href="{{ route('payment-info') }}"><i class="fa fa-circle"></i> Deposit Info</a>
                         </li>
                         @endif
                     </ul>
+                </li>
+            </ul>
+
+            @if (auth()->user()->role != 'admin')
+            <ul class="u-list crm_drop_second_ul">
+                <li class="crm_navi_icon">
+                    <div class="c-menu__item__inner"><a href="{{ route('plans') }}"><i
+                                class="flaticon-progress-report"></i></a>
+                    </div>
+                </li>
+                <li class="c-menu__item crm_navi_icon_cont">
+                    <a href="{{ route('plans') }}">
+                        <div class="c-menu-item__title">Packages</div>
+                    </a>
+                </li>
+            </ul>
+            <ul class="u-list crm_drop_second_ul">
+                <li class="crm_navi_icon">
+                    <div class="c-menu__item__inner"><a href="{{ route('payment-request-form') }}"><i
+                                class="flaticon-progress-report"></i></a>
+                    </div>
+                </li>
+                <li class="c-menu__item crm_navi_icon_cont">
+                    <a href="{{ route('payment-request-form') }}">
+                        <div class="c-menu-item__title">Withdrawal</div>
+                    </a>
                 </li>
             </ul>
             <ul class="u-list crm_drop_second_ul">
@@ -53,18 +79,20 @@
                     </a>
                 </li>
             </ul>
-            <ul class="u-list crm_drop_second_ul d-none">
+            <ul class="u-list crm_drop_second_ul">
                 <li class="crm_navi_icon">
-                    <div class="c-menu__item__inner"><a href="{{ route('payment-info') }}"><i
+                    <div class="c-menu__item__inner"><a href="#"><i
                                 class="flaticon-progress-report"></i></a>
                     </div>
                 </li>
                 <li class="c-menu__item crm_navi_icon_cont">
-                    <a href="{{ route('payment-info') }}">
-                        <div class="c-menu-item__title">Payment Info</div>
+                    <a href="#">
+                        <div class="c-menu-item__title">Referral</div>
                     </a>
                 </li>
             </ul>
+            @endif
+            
             @if (auth()->user()->role == 'admin')
             <ul class="u-list crm_drop_second_ul">
                 <li class="crm_navi_icon">
@@ -91,40 +119,6 @@
                         </li>
                         <li><a href="{{ route('active-subscribers') }}"><i class="fa fa-circle"></i>Subscribed
                                 Customers</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            @else
-            <ul class="u-list crm_drop_second_ul">
-                <li class="crm_navi_icon">
-                    <div class="c-menu__item__inner"><a href="#"><i class="flaticon-movie-tickets"></i></a>
-                        <ul class="crm_hover_menu">
-                            <li>
-                                <a href="{{ route('payment-request') }}"> <i class="fa fa-circle"></i> payment request form</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="c-menu__item is-active has-sub crm_navi_icon_cont">
-                    <a href="#">
-                        <div class="c-menu-item__title"><span>finance</span>
-                        </div>
-                    </a>
-                    <ul>
-                        <li>
-                            <a href="{{ route('payment-info') }}"> <i class="fa fa-circle"></i> payment info</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="{{ route('payment-request') }}"> <i class="fa fa-circle"></i> payment request </a>
-                        </li>
-                    </ul>
-
-                    <ul>
-                        <li>
-                            <a href="{{ route('payment-request-form') }}"> <i class="fa fa-circle"></i> payment request form</a>
                         </li>
                     </ul>
                 </li>

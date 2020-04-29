@@ -23,18 +23,14 @@
             font-family: 'Nunito', sans-serif;
         }
         .cd-dropdown-content {
-            background: #00B4DB;  /* fallback for old browsers */
-            background: -webkit-linear-gradient(to bottom, #0083B0, #00B4DB);  /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to bottom, #0083B0, #00B4DB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            background: #229956 !important;
         }
-        .cd-dropdown h2 {
-            background: #00B4DB;  /* fallback for old browsers */
-            background: -webkit-linear-gradient(to bottom, #0083B0, #00B4DB);  /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to bottom, #0083B0, #00B4DB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        }
-        .cd-dropdown h2 a {
+        .cd-dropdown-content li a:hover {
+            background: white !important;
             color: black;
-            font-family: 'Nunito', sans-serif;
+        }
+        .copy_footer_wrapper {
+            background: #229956 !important;
         }
     </style>
 </head>

@@ -77,7 +77,7 @@ class PopulatePackageAndPaymentPlatform extends Command
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Tranding Plan',
+                'name' => 'Trading Plan',
                 'rate' => '7.2',
                 'time_of_cashout' => '7  Days',
                 'min_invest' => '650',

@@ -25,11 +25,11 @@
                             <tbody>
                                 <tr>
                                     <td class="invest_td1">New Deposit</td>
-                                    <td class="invest_td1"> : $0.00 USD</td>
+                                    <td class="invest_td1"> : ${{ $data['new_deposit'] }} USD</td>
                                 </tr>
                                 <tr>
-                                    <td class="invest_td1">Pending Deposit</td>
-                                    <td class="invest_td1">: $0.00 USD</td>
+                                    <td class="invest_td1">Pending Deposits</td>
+                                    <td class="invest_td1">: {{ $data['no_of_pending'] }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -50,11 +50,11 @@
                             <tbody>
                                 <tr>
                                     <td class="invest_td1">total payouts</td>
-                                    <td class="invest_td1"> : $0.00 USD</td>
+                                    <td class="invest_td1"> : {{ $data['total_payouts'] }}</td>
                                 </tr>
                                 <tr>
                                     <td class="invest_td1">pending payouts</td>
-                                    <td class="invest_td1">: $0.00 USD</td>
+                                    <td class="invest_td1"> : {{ $data['pending_payouts'] }}</td>
                                 </tr>
 
                             </tbody>
@@ -76,11 +76,11 @@
                             <tbody>
                                 <tr>
                                     <td class="invest_td1">interest today</td>
-                                    <td class="invest_td1"> : 11 nos</td>
+                                    <td class="invest_td1"> : 0</td>
                                 </tr>
                                 <tr>
                                     <td class="invest_td1">interest this week</td>
-                                    <td class="invest_td1">: nos</td>
+                                    <td class="invest_td1">: 0</td>
                                 </tr>
 
                             </tbody>

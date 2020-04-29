@@ -35,10 +35,22 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $new_deposit =  Transaction::latest()->where('user_id',auth()->id())->where('status' ,'SUCCESSFUL')->first()['amount'];
+        $no_pending_deposit = Transaction::latest()->where('user_id',auth()->id())->where('status' ,'!=','SUCCESSFUL')->count();
+
+        $total_payouts =  PaymentRequest::where('user_id', auth()->id())->where('status','!=','SUCCESSFUL')->count();
+        $pending_payouts = PaymentRequest::where('user_id', auth()->id())->where('status','SUCCESSFUL')->count();
+        $data = [
+            "new_deposit" => number_format($new_deposit, 2),
+            "no_of_pending" => $no_pending_deposit,
+            "total_payouts" => $total_payouts,
+            "pending_payouts" => $pending_payouts,
+        ];
+
         if(auth()->user()->role == 'admin') {
             return view('pages.auth.admin.index');
         }
-        return view('pages.auth.index');
+        return view('pages.auth.index', compact('data'));
 
     }
 
@@ -51,7 +63,8 @@ class HomeController extends Controller
     public function transactionList()
     {
         $transactions = Transaction::where('user_id', auth()->id())->with('package:id,name','platform:id,name')->get();
-        return view('pages.auth.transaction', compact('transactions'));
+        $pay_requests = PaymentRequest::latest()->where('user_id', auth()->id())->get();
+        return view('pages.auth.transaction', compact('transactions','pay_requests'));
     }
 
     public function plans()
@@ -68,7 +81,7 @@ class HomeController extends Controller
                 'payment_type' => $request->payment_type,
                 'payment_address' => $request->payment_address
             ]);
-        return redirect('plans');
+        return redirect('packages');
     }
 
     public function paymentInfo() 
@@ -92,28 +105,28 @@ class HomeController extends Controller
     public function makePaymentRequest(Request $request)
     {
         if (!$request->filled('amount')) {
-          return redirect('payment-request-form')->with('error', 'fill out amount field');
+          return redirect('withdrawal')->with('error', 'fill out amount field');
         }
         
         //Check Customer Total Balance
         $availableBal = auth()->user()->wallet->active_balance + auth()->user()->wallet->profit_balance;
 
         if($request->amount > $availableBal) {
-            return redirect('payment-request-form')->with('error', 'insuffient Funds.');
+            return redirect('withdrawal')->with('error', 'insuffient Funds.');
         }
 
         //Check if Pending Request
         $pendingRequest =  PaymentRequest::where('user_id', auth()->id())->where('status','!=','APPROVED')->count();
 
         if($pendingRequest > 0){
-            return redirect('payment-request-form')->with('error', 'Pls hold . You have a Pending Payment Request');
+            return redirect('withdrawal')->with('error', 'Pls hold . You have a Pending Payment Request');
         }
 
         //Check Runing PAckage
         $packageStillActive = ManageProfit::latest()->where('user_id',$request->user()->id)->where('duration_remaining','>', 0)->count();
 
         if($packageStillActive > 0){
-            return redirect('payment-request-form')->with('error', 'Package still active. Pls request when due.');
+            return redirect('withdrawal')->with('error', 'Package still active. Pls request when due.');
         }
 
         PaymentRequest::create([
@@ -173,6 +186,11 @@ class HomeController extends Controller
         Transaction::approveUserPayment($payload);
 
         return response()->json(['success'=>'Payment Approved']);
+    }
+
+    public function cancelPaymentRequest($id) {
+        PaymentRequest::find($id)->delete();
+        return redirect('my-transactions');
     }
 
 }

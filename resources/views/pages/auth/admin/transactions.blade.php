@@ -53,10 +53,10 @@
                         <td>
                           <div class="btn-group">
                             @if ($tr->status != 'SUCCESSFUL')
-                              <a class="btn btn-success btn-sm" href="{{ route('approve-payment', $tr->transaction_ref) }}" onclick="event.preventDefault();
-                              document.getElementById('approve-form').submit();">Approve</a>
-                              <form id="approve-form" action="{{ route('approve-payment', $tr->transaction_ref) }}" method="POST" style="display: none;">
+                              <a class="btn btn-success btn-sm approve-btn" href="{{ route('approve-payment', $tr->transaction_ref) }}" data-ref="{{ $tr->transaction_ref }}" onclick="event.preventDefault();">Approve</a>
+                              <form class="approve-submit-{{ $tr->transaction_ref }}" action="{{ route('approve-payment', $tr->transaction_ref) }}" method="POST" style="display: none;">
                                 @csrf
+                                <input type="hidden" class="amount-{{ $tr->transaction_ref }}" name="amount" value="">
                               </form>
                               
                             @else
@@ -79,6 +79,22 @@
 
 @section('script')
 <script>
+  $(document).on('click','.approve-btn',function() {
+    const ref = $(this).data('ref');
+    const point = `approve-submit-${ref}`;
+    const amountInput = `amount-${ref}`;
 
+    var amount = prompt("Please Enter the amount Paid by Customer", "");
+    if (amount == null || isNaN(amount)) {
+      return;
+    }
+    var r = confirm("Are you sure you wish to Confirm.");
+    if (r == true) {
+      $('.'+amountInput).val(amount)
+      $('.'+point).submit()
+    } else {
+      return;
+    }
+  });
 </script>
 @endsection
