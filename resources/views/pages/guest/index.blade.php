@@ -385,7 +385,7 @@
               lorem nec felis finibus laoreet. Nullam id dictum urna.
               Vestibulum in aliquam tellus, sit amet tristique ipsum.
             </p> -->
-                    <a href="/signup.html" class="btn btn-alt">My Account</a>
+                    <a href="/app" class="btn btn-alt">My Account</a>
                 </div>
             </div>
         </div>

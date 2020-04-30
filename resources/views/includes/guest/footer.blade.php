@@ -10,7 +10,7 @@
             <li><a href="#"><em class="fa fa-facebook"></em></a></li>
             <li><a href="#"><em class="fa fa-twitter"></em></a></li>
             <li><a href="#"><em class="fa fa-linkedin"></em></a></li>
-            <li><a href="t.me/crystalcapital"><em class="fa fa-telegram"></em></a></li>
+            <li><a href="https://t.me/crystalcapital"><em class="fa fa-telegram"></em></a></li>
           </ul>
         </div>
       </div>
