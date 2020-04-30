@@ -48,7 +48,7 @@ class HomeController extends Controller
         ];
 
         if(auth()->user()->role == 'admin') {
-            return view('pages.auth.admin.index');
+            return redirect('admin/dashboard');
         }
         return view('pages.auth.index', compact('data'));
 
