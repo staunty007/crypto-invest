@@ -35,6 +35,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if(auth()->user()->role == 'admin') {
+            return redirect('admin/dashboard');
+        }
+        
         $new_deposit =  Transaction::latest()->where('user_id',auth()->id())->where('status' ,'SUCCESSFUL')->first()['amount'];
         $no_pending_deposit = Transaction::latest()->where('user_id',auth()->id())->where('status' ,'!=','SUCCESSFUL')->count();
 
@@ -47,9 +51,6 @@ class HomeController extends Controller
             "pending_payouts" => $pending_payouts,
         ];
 
-        if(auth()->user()->role == 'admin') {
-            return redirect('admin/dashboard');
-        }
         return view('pages.auth.index', compact('data'));
 
     }
