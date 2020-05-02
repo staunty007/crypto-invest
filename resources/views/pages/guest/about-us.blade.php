@@ -47,7 +47,8 @@
                         <img src="images/box-icon-f.png" alt="box-icon">
                     </div>
                     <h4>Payment Options</h4>
-                    <p>All of our wallets are funded with Bitcoin. Other options coming soon.</p>
+                    <p>All of our wallets are funded with Bitcoin, Etherum, Perfect Money, CashApp. Other options coming soon.
+                    </p>
                 </div>
             </div>
             <div class="col-md-4">
@@ -56,7 +57,7 @@
                         <img src="images/box-icon-g.png" alt="box-icon">
                     </div>
                     <h4>Strong Security</h4>
-                    <!-- <p>Morbi eget varius risus, ut venenatis libero Pellentesque in porta dui.</p> -->
+                    <p>We’re securely protected by most sophisticated servers with certified SSL securities.</p>
                 </div>
             </div>
             <div class="col-md-4">
@@ -65,7 +66,7 @@
                         <img src="images/box-icon-h.png" alt="box-icon">
                     </div>
                     <h4>World Coverage</h4>
-                    <!-- <p>Morbi eget varius risus, ut venenatis libero Pellentesque in porta dui.</p> -->
+                    <p>We’re globally covered with insurance and monetary policy.</p>
                 </div>
             </div>
         </div>

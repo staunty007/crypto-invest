@@ -17,6 +17,12 @@
         color: #fff !important;
         background: grey !important;
     }
+    .investment_icon_circle, 
+    .investment_border_wrapper,
+    .investment_icon_circle:after,
+    .plans_btn a {
+    background: #229956;
+}
 
 </style>
 @endsection

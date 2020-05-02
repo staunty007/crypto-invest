@@ -35,7 +35,7 @@
                         </li>
                         <li><a href="{{ route('profile') }}"><i class="fa fa-circle"></i> profile</a>
                         </li>
-                        <li><a href="{{ route('payment-info') }}"><i class="fa fa-circle"></i> Deposit Info</a>
+                        <li><a href="{{ route('payment-info') }}"><i class="fa fa-circle"></i> Payout Details</a>
                         </li>
                         @endif
                     </ul>

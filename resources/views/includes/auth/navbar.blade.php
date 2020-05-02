@@ -9,20 +9,28 @@
             <ul class="cd-secondary-dropdown icon_menu is-hidden">
                 <li class="go-back"><a href="#0">Menu</a></li>
                 <li><a href="{{ route('app') }}">Dashboard</a></li>
-                <li><a href="{{ route('profile') }}">My Profile</a></li>
-                <li><a href="{{ route('plans') }}">Choose Package</a></li>
+                <li><a href="{{ route('profile') }}">Profile</a></li>
+                @if (auth()->user()->role == 'user')
+                    <li><a href="{{ route('payment-info') }}">Payout Details</a></li>
+                @endif
             </ul>
         </li>
-        <li class="has-children mt-3">
-            <a href="#">Finance</a>
-            <ul class="cd-secondary-dropdown icon_menu is-hidden">
-                <li class="go-back"><a href="#0">Menu</a></li>
-                <li><a href="{{ route('payment-info') }}">Payment Info</a></li>
-                <li><a href="{{ route('payment-request') }}">Payment Request</a></li>
-                <li><a href="{{ route('payment-request-form') }}">Payment Request Form</a></li>
-            </ul>
-        </li>
-        <li><a href="{{ route('my-transactions') }}"> Transactions</a></li>
+
+        @if (auth()->user()->role == 'admin')
+        <li><a href="{{ route('all-transactions') }}"> All Transactions</a></li>
+        <li><a href="{{ route('admin-payment-request') }}"> Payment Requests</a></li>
+        <li><a href="{{ route('all-packages') }}"> Packages</a></li>
+        <li><a href="{{ route('all-customers') }}"> All Customers</a></li>
+        <li><a href="{{ route('active-subscribers') }}"> Subscribed Customers</a></li>
+
+        @else     
+            <li><a href="{{ route('plans') }}"> Packages</a></li>
+            <li><a href="{{ route('payment-request-form') }}"> Withdrawal</a></li>
+            <li><a href="{{ route('my-transactions') }}"> Transactions</a></li>
+            <li><a href="#"> Referal</a></li>
+        @endif
+
+
         <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
             document.getElementById('logout-form').submit();"> Logout </a></li>
     </ul>

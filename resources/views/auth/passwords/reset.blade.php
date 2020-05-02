@@ -52,7 +52,7 @@
                 </div>
             </div>
         </div>
-        <div style="margin-top: 40px;"></div>
+        <div style="margin-top: 300px;"></div>
     </div>
 </div>
 @endsection
