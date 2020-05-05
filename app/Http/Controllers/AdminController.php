@@ -73,4 +73,23 @@ class AdminController extends Controller
         $package->update(request()->all());
         return redirect()->route('all-packages');
     }
+
+    public function approvePaymentRequest($id) {
+       $payment = PaymentRequest::findOrFail($id);
+       unset(request()['_token']);
+       $payment->update([
+           'status' => request()->status == false ? 'PROCESSING' : 'APPROVED'
+       ]);
+       
+       return back();
+    }
+
+    public function declinePaymentRequest($id) {
+       $payment = PaymentRequest::findOrFail($id);
+       unset(request()['_token']);
+       $payment->update([
+           'status' => 'FAILED'
+       ]);
+       return back();
+    }
 }

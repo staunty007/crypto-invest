@@ -77,35 +77,60 @@
                             </div>
                         </div>
                         <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                            <div class="col-md-6 mt-2 mb-5">
-                                <div class="card">
-                                    <div class="card-header bg-light">
-                                        <h3 class="f-fam">MY PROFILE</h3>
+                            <div class="row">
+                                <div class="col-md-6 mt-2 mb-5">
+                                    <div class="card">
+                                        <div class="card-header bg-light">
+                                            <h3 class="f-fam">MY PROFILE</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <form method="POST" action="{{ route('update-profile', auth()->id()) }}">
+                                                @csrf
+                                                <div class="form-group">
+                                                    <label class="text-dark" for="">Name</label>
+                                                    <input type="text" class="form-control" name="name" value="{{ auth()->user()->name }}">
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-6">
+                                                        <label class="text-dark" for="">Email</label>
+                                                        <input type="email" class="form-control" name="email"
+                                                        value="{{ auth()->user()->email }}">
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label class="text-dark" for="">Username</label>
+                                                        <input type="text" class="form-control" name="username" value="{{ auth()->user()->username }}"> 
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="text-dark" for="">Phone</label>
+                                                    <input type="text" class="form-control col-md-6" name="phone" value="{{ auth()->user()->phone }}">
+                                                </div>
+                                                <button type="submit" class="btn btn-success">Update Profile</button>
+                                            </form>
+                                        </div>
                                     </div>
-                                    <div class="card-body">
-                                        <form method="POST" action="{{ route('update-profile', auth()->id()) }}">
-                                            @csrf
-                                            <div class="form-group">
-                                                <label class="text-dark" for="">Name</label>
-                                                <input type="text" class="form-control" name="name" value="{{ auth()->user()->name }}">
-                                            </div>
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label class="text-dark" for="">Email</label>
-                                                    <input type="email" class="form-control" name="email"
-                                                    value="{{ auth()->user()->email }}">
+                                </div>
+                                <div class="col-md-6 mt-2 mb-5">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="f-fam">WALLET PROFILE</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <form method="POST" action="{{ route('update-wallet', auth()->id()) }}">
+                                                @csrf
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-4">
+                                                        <label class="text-dark" for="">Payment Type</label>
+                                                        <input type="text" class="form-control" name="payment_type" value="{{ auth()->user()->info->payment_type }}">
+                                                    </div>
+                                                    <div class="form-group col-md-8">
+                                                        <label class="text-dark" for="">Payment Address</label>
+                                                        <input type="text" class="form-control" name="payment_address" value="{{ auth()->user()->info->payment_address }}"> 
+                                                    </div>
                                                 </div>
-                                                <div class="form-group col-md-6">
-                                                    <label class="text-dark" for="">Username</label>
-                                                    <input type="text" class="form-control" name="username" value="{{ auth()->user()->username }}"> 
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="text-dark" for="">Phone</label>
-                                                <input type="text" class="form-control col-md-6" name="phone" value="{{ auth()->user()->phone }}">
-                                            </div>
-                                            <button type="submit" class="btn btn-primary">Update Profile</button>
-                                        </form>
+                                                <button type="submit" class="btn btn-success">Update Wallet Profile</button>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

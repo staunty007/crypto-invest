@@ -23,7 +23,7 @@
                       <h5 class="card-title">{{ auth()->user()->info->payment_type }}</h5>
                       <h5 class="card-text mt-4">Wallet Address : <br><span class="mt-3"><code>{{ auth()->user()->info->payment_address }}</code></span></h5>
                       <p class="card-text mt-5"><small class="text-muted">Last updated {{ auth()->user()->info->created_at->diffForHumans() }}</small></p>
-                      <button class="btn btn-info btn-sm mt-4">Edit Details</button>
+                      <a href="{{ route('profile') }}" class="btn btn-info btn-sm mt-4">Edit Details</a>
                     </div>
                   </div>
                 </div>

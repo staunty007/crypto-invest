@@ -31,7 +31,8 @@
                                 <input type="number" min="1" class="form-control" name="rate" value="{{ $package->rate }}">
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div 
+                        class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="inputAddress">Time of Cashout <small class="text-danger">(Please type correctly)</small></label>
                                 <input type="text" class="form-control" name="time_of_cashout" value="{{ $package->time_of_cashout }}">

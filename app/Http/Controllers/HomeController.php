@@ -39,11 +39,12 @@ class HomeController extends Controller
             return redirect('admin/dashboard');
         }
         
-        $new_deposit =  Transaction::latest()->where('user_id',auth()->id())->where('status' ,'SUCCESSFUL')->first()['amount'];
+        $new_deposit = Transaction::latest()->where('user_id',auth()->id())->where('status' ,'SUCCESSFUL')->first()['amount'];
         $no_pending_deposit = Transaction::latest()->where('user_id',auth()->id())->where('status' ,'!=','SUCCESSFUL')->count();
 
-        $total_payouts =  PaymentRequest::where('user_id', auth()->id())->where('status','!=','SUCCESSFUL')->count();
-        $pending_payouts = PaymentRequest::where('user_id', auth()->id())->where('status','SUCCESSFUL')->count();
+        $pending_payouts =  PaymentRequest::where('user_id', auth()->id())->where('status','!=','SUCCESSFUL')->count();
+        $total_payouts = PaymentRequest::where('user_id', auth()->id())->where('status','SUCCESSFUL')->count();
+        
         $data = [
             "new_deposit" => number_format($new_deposit, 2),
             "no_of_pending" => $no_pending_deposit,
@@ -196,7 +197,6 @@ class HomeController extends Controller
 
     public function updateProfile($id)
     {
-        //return request()->all();
         $user = User::findOrFail($id);
         unset(request()['_token']);
         $user->update([
@@ -206,6 +206,14 @@ class HomeController extends Controller
             'phone' => request()->phone
         ]);
 
+        return back();
+    }
+
+    public function updateWalletProfile($id)
+    {
+        $user = User::findOrFail($id);
+        unset(request()['_token']);
+        $user->info()->update(request()->all());
         return back();
     }
 

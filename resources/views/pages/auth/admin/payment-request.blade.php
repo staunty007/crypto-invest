@@ -46,8 +46,16 @@
                         <td>{{ $pay->created_at->format('d-m-Y') }}</td>
                         <td>
                             <div class="btn-group">
-                                <button class="btn btn-sm btn-success">Approve</button>
-                                <button class="btn btn-sm btn-danger">Decline</button>
+                                @if ($pay->status != 'FAILED')     
+                                    <a class="btn btn-success btn-sm approve-btn" data-status="{{ $pay->status == 'APPROVED' ? 0 : 1 }}" href="{{ route('admin-approve-request', $pay->id) }}" data-id="{{ $pay->id }}" onclick="event.preventDefault();">{{ $pay->status == 'APPROVED' ? 'Unapprove' : 'Approve' }}</a>
+                                    <form class="approve-submit-{{ $pay->id }}" action="{{ route('admin-approve-request', $pay->id) }}" method="POST" style="display: none;">
+                                    @csrf
+                                    <input type="hidden" name="status" id="form-status-{{ $pay->id }}" value="">
+                                    </form>
+                                @endif
+                                @if ($pay->status != 'APPROVED')
+                                    <a href="{{ route('admin-decline-request', $pay->id) }}" class="btn btn-sm btn-danger">{{ $pay->status == 'FAILED' ? 'Declined' : 'Decline' }}</a>
+                                @endif 
                             </div>
                         </td>
                       </tr>
@@ -65,6 +73,18 @@
 
 @section('script')
 <script>
-
+  $(document).on('click','.approve-btn',function() {
+    const id = $(this).data('id');
+    const status = $(this).data('status');
+    const formStatus = `form-status-${id}`;
+    const point = `approve-submit-${id}`;
+    var r = confirm("Are you sure you wish to Approve Payment.");
+    if (r == true) {
+      $('#'+formStatus).val(status)
+      $('.'+point).submit()
+    } else {
+      return;
+    }
+  });
 </script>
 @endsection

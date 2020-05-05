@@ -23,6 +23,7 @@ Auth::routes();
 Route::get('/app', 'HomeController@index')->name('app');
 Route::get('/profile', 'HomeController@profile')->name('profile');
 Route::post('/profile/update/{id}', 'HomeController@updateProfile')->name('update-profile');
+Route::post('/wallet/update/{id}', 'HomeController@updateWalletProfile')->name('update-wallet');
 
 Route::get('/packages', 'HomeController@plans')->name('plans');
 Route::get('/my-transactions', 'HomeController@transactionList')->name('my-transactions');
@@ -48,4 +49,6 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth','isadmin',]], functi
     Route::get('/customers','AdminController@allCustomers')->name('all-customers');
     Route::get('/active-subscribers','AdminController@activeSubscribedCustomers')->name('active-subscribers');
     Route::get('/payment-request','AdminController@paymentRequestLists')->name('admin-payment-request');
+    Route::post('/approve-request/{id}','AdminController@approvePaymentRequest')->name('admin-approve-request');
+    Route::get('/decline-request/{id}','AdminController@declinePaymentRequest')->name('admin-decline-request');
 });
