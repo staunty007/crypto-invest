@@ -46,7 +46,7 @@ class AdminController extends Controller
         $pay_requests = PaymentRequest::latest()->with('user:id,name')->get();
         return view('pages.auth.admin.payment-request' ,compact('pay_requests'));
     }
-
+    
     public function approvePayment(Request $request, $ref) {
         $payment = Transaction::where('transaction_ref', $ref)->first();
         $payload = [
@@ -56,9 +56,21 @@ class AdminController extends Controller
             'status' => "SUCCESSFUL",
             'transaction_ref' => $ref
         ];
-
+        
         Transaction::approveUserPayment($payload);
 
-       return redirect('admin/transactions');
+        return redirect('admin/transactions');
+    }
+    
+    public function editPackage($id) {
+        $package = Package::findOrFail($id);
+        return view('pages.auth.admin.package-edit' ,compact('package'));
+    }
+
+    public function updatePackage($id) {
+        $package = Package::findOrFail($id);
+        unset(request()['_token']);
+        $package->update(request()->all());
+        return redirect()->route('all-packages');
     }
 }

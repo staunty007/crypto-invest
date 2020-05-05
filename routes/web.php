@@ -22,6 +22,8 @@ Auth::routes();
 
 Route::get('/app', 'HomeController@index')->name('app');
 Route::get('/profile', 'HomeController@profile')->name('profile');
+Route::post('/profile/update/{id}', 'HomeController@updateProfile')->name('update-profile');
+
 Route::get('/packages', 'HomeController@plans')->name('plans');
 Route::get('/my-transactions', 'HomeController@transactionList')->name('my-transactions');
 Route::post('/confirm-payment', 'HomeController@confirmPackagePayment')->name('confirm-package-payment');
@@ -38,7 +40,11 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth','isadmin',]], functi
     Route::post('/approve-payment/{ref}','AdminController@approvePayment')->name('approve-payment');
     Route::get('/dashboard','AdminController@dashboard')->name('admin-dashboard');
     Route::get('/transactions','AdminController@allTransactions')->name('all-transactions');
+
     Route::get('/packages','AdminController@allPackages')->name('all-packages');
+    Route::get('/package/{id}/edit','AdminController@editPackage')->name('edit-package');
+    Route::post('/package/{id}/update','AdminController@updatePackage')->name('update-package');
+
     Route::get('/customers','AdminController@allCustomers')->name('all-customers');
     Route::get('/active-subscribers','AdminController@activeSubscribedCustomers')->name('active-subscribers');
     Route::get('/payment-request','AdminController@paymentRequestLists')->name('admin-payment-request');

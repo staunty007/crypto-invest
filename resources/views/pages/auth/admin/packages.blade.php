@@ -48,7 +48,7 @@
                         <td>{{ $package->created_at->format('d-m-Y') }}</td>
                         <td>
                             <div class="btn-group">
-                                <button class="btn btn-sm btn-warning">Edit</button>
+                                <a href="{{ route('edit-package', $package->id) }}" class="btn btn-sm btn-warning">Edit</a>
                                 <button class="btn btn-sm btn-danger">Delete</button>
                             </div>
                         </td>

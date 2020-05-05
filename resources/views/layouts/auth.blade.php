@@ -32,6 +32,9 @@
         .copy_footer_wrapper {
             background: #229956 !important;
         }
+        .f-fam {
+            font-family: inherit;
+        }
     </style>
 </head>
 <!-- color picker start -->

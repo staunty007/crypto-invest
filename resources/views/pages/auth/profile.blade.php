@@ -16,7 +16,7 @@
 
         </div>
         <div class="col-md-12 col-lg-12 col-sm-12 col-12">
-            <div class="card mb-5">
+            <div class="card" style="margin-bottom: 300px;">
                 <div class="card-body">
                     <nav class="bg-default">
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -32,14 +32,25 @@
                             <div class="row mt-1">
                                 <div class="col-md-4">
                                     <div class="card">
-                                        <img class="card-img-top" src="https://picsum.photos/200/100" height="100" width="200" alt="Card image cap">
+                                        <img class="card-img-top" src="https://picsum.photos/200/100" height="100"
+                                            width="200" alt="Card image cap">
                                         <div class="card-body">
                                             <h5 class="card-title">{{ auth()->user()->name }}</h5>
-                                            <p class="card-text">username : <span class="text-muted text-lowercase">{{ auth()->user()->username }}</span></p>
-                                            <p class="card-text">email : <span class="text-muted text-lowercase">{{ auth()->user()->email }}</span></p>
-                                            <p class="card-text">phone : <span class="text-muted text-lowercase">{{ auth()->user()->phone }}</span></p>
-                                            <p class="card-text">gender : <span class="text-muted text-lowercase">{{ auth()->user()->gender }}</span></p>
-                                            <p class="card-text">registered at: <span class="text-muted">{{ auth()->user()->created_at->diffForHumans() }}</span></p>
+                                            <p class="card-text">username : <span
+                                                    class="text-muted text-lowercase">{{ auth()->user()->username }}</span>
+                                            </p>
+                                            <p class="card-text">email : <span
+                                                    class="text-muted text-lowercase">{{ auth()->user()->email }}</span>
+                                            </p>
+                                            <p class="card-text">phone : <span
+                                                    class="text-muted text-lowercase">{{ auth()->user()->phone }}</span>
+                                            </p>
+                                            <p class="card-text">gender : <span
+                                                    class="text-muted text-lowercase">{{ auth()->user()->gender }}</span>
+                                            </p>
+                                            <p class="card-text">registered at: <span
+                                                    class="text-muted">{{ auth()->user()->created_at->diffForHumans() }}</span>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -47,18 +58,57 @@
                                     <div class="card">
                                         <div class="card-body bg-light">
                                             <ul class="list-group list-group-flush">
-                                                <li class="list-group-item">Wallet Balance: <span class="text-muted ml-2">${{ number_format(auth()->user()->wallet->active_balance , 2) }}</span></li>
-                                                <li class="list-group-item">Profit: <span class="text-muted ml-2">${{ number_format(auth()->user()->wallet->profit_balance , 2) }}</span></li>
-                                                <li class="list-group-item">Country: <span class="text-muted ml-2 text-uppercase">{{ auth()->user()->info->country }}</span></li>
-                                                <li class="list-group-item">Package: <span class="text-muted ml-2 text-uppercase">{{ App\Package::find( auth()->user()->info->package_id)['name'] }}</span></li>
-                                              </ul>
+                                                <li class="list-group-item">Wallet Balance: <span
+                                                        class="text-muted ml-2">${{ number_format(auth()->user()->wallet->active_balance , 2) }}</span>
+                                                </li>
+                                                <li class="list-group-item">Profit: <span
+                                                        class="text-muted ml-2">${{ number_format(auth()->user()->wallet->profit_balance , 2) }}</span>
+                                                </li>
+                                                <li class="list-group-item">Country: <span
+                                                        class="text-muted ml-2 text-uppercase">{{ auth()->user()->info->country }}</span>
+                                                </li>
+                                                <li class="list-group-item">Package: <span
+                                                        class="text-muted ml-2 text-uppercase">{{ App\Package::find( auth()->user()->info->package_id)['name'] }}</span>
+                                                </li>
+                                            </ul>
                                         </div>
-                                      </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                            ...
+                            <div class="col-md-6 mt-2 mb-5">
+                                <div class="card">
+                                    <div class="card-header bg-light">
+                                        <h3 class="f-fam">MY PROFILE</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <form method="POST" action="{{ route('update-profile', auth()->id()) }}">
+                                            @csrf
+                                            <div class="form-group">
+                                                <label class="text-dark" for="">Name</label>
+                                                <input type="text" class="form-control" name="name" value="{{ auth()->user()->name }}">
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label class="text-dark" for="">Email</label>
+                                                    <input type="email" class="form-control" name="email"
+                                                    value="{{ auth()->user()->email }}">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label class="text-dark" for="">Username</label>
+                                                    <input type="text" class="form-control" name="username" value="{{ auth()->user()->username }}"> 
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="text-dark" for="">Phone</label>
+                                                <input type="text" class="form-control col-md-6" name="phone" value="{{ auth()->user()->phone }}">
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Update Profile</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

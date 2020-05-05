@@ -120,7 +120,7 @@ class HomeController extends Controller
         $pendingRequest =  PaymentRequest::where('user_id', auth()->id())->where('status','!=','APPROVED')->count();
 
         if($pendingRequest > 0){
-            return redirect('withdrawal')->with('error', 'Pls hold . You have a Pending Payment Request');
+            return redirect('withdrawal')->with('error', 'Please hold. You have a Pending Withdrawal Request');
         }
 
         //Check Runing PAckage
@@ -192,6 +192,21 @@ class HomeController extends Controller
     public function cancelPaymentRequest($id) {
         PaymentRequest::find($id)->delete();
         return redirect('my-transactions');
+    }
+
+    public function updateProfile($id)
+    {
+        //return request()->all();
+        $user = User::findOrFail($id);
+        unset(request()['_token']);
+        $user->update([
+            'username' => request()->username,
+            'email' => request()->email,
+            'username' => request()->username,
+            'phone' => request()->phone
+        ]);
+
+        return back();
     }
 
 }

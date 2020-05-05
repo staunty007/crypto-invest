@@ -88,15 +88,15 @@
                             <a class="nav-link active tab-link" id="v-pills-home-tab" data-toggle="pill"
                                 href="#v-pills-home" role="tab" aria-controls="v-pills-home"
                                 aria-selected="true">BTC</a>
+                            <a class="nav-link tab-link" id="v-pills-four-tab" data-toggle="pill"
+                                href="#v-pills-four" role="tab" aria-controls="v-pills-four"
+                                aria-selected="false">ETH</a>
                             <a class="nav-link tab-link" id="v-pills-profile-tab" data-toggle="pill"
                                 href="#v-pills-profile" role="tab" aria-controls="v-pills-profile"
                                 aria-selected="false">Perfect Money</a>
                             <a class="nav-link tab-link" id="v-pills-messages-tab" data-toggle="pill"
                                 href="#v-pills-messages" role="tab" aria-controls="v-pills-messages"
                                 aria-selected="false">Cashapp</a>
-                            <a class="nav-link tab-link" id="v-pills-four-tab" data-toggle="pill"
-                                href="#v-pills-four" role="tab" aria-controls="v-pills-four"
-                                aria-selected="false">ETH</a>
                         </div>
                     </div>
                     <div class="col-8">
