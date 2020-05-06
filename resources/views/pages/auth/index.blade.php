@@ -24,7 +24,7 @@
                         <table class="invest_table">
                             <tbody>
                                 <tr>
-                                    <td class="invest_td1">New Deposit</td>
+                                    <td class="invest_td1">Last Deposit</td>
                                     <td class="invest_td1"> : ${{ $data['new_deposit'] }} USD</td>
                                 </tr>
                                 <tr>

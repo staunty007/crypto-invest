@@ -121,7 +121,12 @@
                                                 <div class="form-row">
                                                     <div class="form-group col-md-4">
                                                         <label class="text-dark" for="">Payment Type</label>
-                                                        <input type="text" class="form-control" name="payment_type" value="{{ auth()->user()->info->payment_type }}">
+                                                        <select name="payment_type" class="form-control select-form">
+                                                            <option value="BTC" {{ auth()->user()->info->payment_type == "BTC" ? 'selcted' : '' }}>BTC</option>
+                                                            <option value="ETH" {{ auth()->user()->info->payment_type == "ETH" ? 'selcted' : '' }}>ETH</option>
+                                                            <option value="PM" {{ auth()->user()->info->payment_type == "PM" ? 'selcted' : '' }}>PM</option>
+                                                            <option value="CASHAP" {{ auth()->user()->info->payment_type == "CASHAPP" ? 'selcted' : '' }}>CASHAPP</option>
+                                                        </select>
                                                     </div>
                                                     <div class="form-group col-md-8">
                                                         <label class="text-dark" for="">Payment Address</label>
@@ -240,4 +245,11 @@
     </div>
 </div>
 <!--  profile wrapper end -->
+@endsection
+@section('script')
+<script>
+    setTimeout(() => {
+    $(".select-form").removeAttr("style")[1].remove()
+}, 1000);
+</script>
 @endsection

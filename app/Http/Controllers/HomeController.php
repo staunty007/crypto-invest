@@ -42,8 +42,8 @@ class HomeController extends Controller
         $new_deposit = Transaction::latest()->where('user_id',auth()->id())->where('status' ,'SUCCESSFUL')->first()['amount'];
         $no_pending_deposit = Transaction::latest()->where('user_id',auth()->id())->where('status' ,'!=','SUCCESSFUL')->count();
 
-        $pending_payouts =  PaymentRequest::where('user_id', auth()->id())->where('status','!=','SUCCESSFUL')->count();
-        $total_payouts = PaymentRequest::where('user_id', auth()->id())->where('status','SUCCESSFUL')->count();
+        $pending_payouts =  PaymentRequest::where('user_id', auth()->id())->where('status','!=','APPROVED')->count();
+        $total_payouts = PaymentRequest::where('user_id', auth()->id())->where('status','APPROVED')->count();
         
         $data = [
             "new_deposit" => number_format($new_deposit, 2),

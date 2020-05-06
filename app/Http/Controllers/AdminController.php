@@ -76,6 +76,21 @@ class AdminController extends Controller
 
     public function approvePaymentRequest($id) {
        $payment = PaymentRequest::findOrFail($id);
+       $user = User::findOrFail($payment['user_id']);
+       $wallet = $user->wallet()->first();
+       $walletBal = $wallet['active_balance'];
+       $profitBal = $wallet['profit_balance'];
+    
+       if((int) $payment['amount'] <= (int) $profitBal ) {
+           $user->wallet()->update([
+               'profit_balance'  => $profitBal - $payment['amount']
+           ]);
+       } elseif((int) $payment['amount'] <= (int) $walletBal) {
+            $user->wallet()->update([
+                'active_balance'  => $walletBal - $payment['amount']
+            ]);
+       }
+
        unset(request()['_token']);
        $payment->update([
            'status' => request()->status == false ? 'PROCESSING' : 'APPROVED'

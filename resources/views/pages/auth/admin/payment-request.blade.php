@@ -46,16 +46,20 @@
                         <td>{{ $pay->created_at->format('d-m-Y') }}</td>
                         <td>
                             <div class="btn-group">
-                                @if ($pay->status != 'FAILED')     
-                                    <a class="btn btn-success btn-sm approve-btn" data-status="{{ $pay->status == 'APPROVED' ? 0 : 1 }}" href="{{ route('admin-approve-request', $pay->id) }}" data-id="{{ $pay->id }}" onclick="event.preventDefault();">{{ $pay->status == 'APPROVED' ? 'Unapprove' : 'Approve' }}</a>
+                                @if ($pay->status == 'PROCESSING')     
+                                    <a class="btn btn-success btn-sm approve-btn" data-status="{{ $pay->status == 'APPROVED' ? 0 : 1 }}" href="{{ route('admin-approve-request', $pay->id) }}" data-id="{{ $pay->id }}" onclick="event.preventDefault();">Approve</a>
                                     <form class="approve-submit-{{ $pay->id }}" action="{{ route('admin-approve-request', $pay->id) }}" method="POST" style="display: none;">
                                     @csrf
                                     <input type="hidden" name="status" id="form-status-{{ $pay->id }}" value="">
                                     </form>
-                                @endif
-                                @if ($pay->status != 'APPROVED')
                                     <a href="{{ route('admin-decline-request', $pay->id) }}" class="btn btn-sm btn-danger">{{ $pay->status == 'FAILED' ? 'Declined' : 'Decline' }}</a>
-                                @endif 
+                                @endif
+                                @if ($pay->status == 'APPROVED')
+                                <button class="btn btn-success btn-sm">APPROVED</button>
+                                @endif
+                                @if ($pay->status == 'FAILED')
+                                <button class="btn btn-danger btn-sm">DECLINED</button>
+                                @endif
                             </div>
                         </td>
                       </tr>
