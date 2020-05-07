@@ -33,7 +33,7 @@ Route::get('/mgt-profit', 'HomeController@getAllProfitManagements');
 Route::get('/payment-info', 'HomeController@paymentInfo')->name('payment-info');
 Route::post('/update-payment-profile', 'HomeController@updatePaymentProfile')->name('update-payment-profile');
 Route::get('/payment-request','HomeController@paymentRequestLists')->name('payment-request');
-Route::get('/withdrawal','HomeController@paymentRequestForm')->name('payment-request-form');
+Route::get('/withdrawal','HomeController@paymentRequestForm')->name('withdrawal');
 Route::post('/payment-request','HomeController@makePaymentRequest')->name('make-payment-request');
 Route::post('/cancel-request/{id}','HomeController@cancelPaymentRequest')->name('cancel-request');
 

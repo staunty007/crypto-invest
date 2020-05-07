@@ -25,9 +25,9 @@
 
         @else     
             <li><a href="{{ route('plans') }}"> Packages</a></li>
-            <li><a href="{{ route('payment-request-form') }}"> Withdrawal</a></li>
+            <li><a href="{{ route('withdrawal') }}"> Withdrawal</a></li>
             <li><a href="{{ route('my-transactions') }}"> Transactions</a></li>
-            <li><a href="#"> Referal</a></li>
+            <li><a href="#"> Referral</a></li>
         @endif
 
 

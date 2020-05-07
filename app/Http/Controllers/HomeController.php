@@ -140,18 +140,18 @@ class HomeController extends Controller
             'status' => 'PROCESSING'
         ]);
 
-        return redirect('payment-request-form')->with('success', 'Request Submitted, and will be Processed.');
+        return redirect('withdrawal')->with('success', 'Request Submitted, and will be Processed.');
     }
 
     public function confirmPackagePayment(Request $request)
     {
         $userPackage = UserInfo::where('user_id', auth()->id());
         if($userPackage->first()['package_id'] != null && auth()->user()->status == 0) {
-            throw new Error("Please Hold as we Confirm your Payment");
+            return response()->json(['error'=>'Welcome, Please Hold as we Confirm your Payment.']);
         }
 
-        if(auth()->user()->status != 0) {
-            throw new Error("You already have an active package.");
+        if(auth()->user()->transaction->first()->status != 'SUCCESSFUL') {
+            return response()->json(['error'=>'Please Hold as we Confirm your Payment.']);
         }
 
         $store = Transaction::create([
@@ -200,9 +200,7 @@ class HomeController extends Controller
         $user = User::findOrFail($id);
         unset(request()['_token']);
         $user->update([
-            'username' => request()->username,
             'email' => request()->email,
-            'username' => request()->username,
             'phone' => request()->phone
         ]);
 

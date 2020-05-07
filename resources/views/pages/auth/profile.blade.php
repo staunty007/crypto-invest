@@ -88,17 +88,17 @@
                                                 @csrf
                                                 <div class="form-group">
                                                     <label class="text-dark" for="">Name</label>
-                                                    <input type="text" class="form-control" name="name" value="{{ auth()->user()->name }}">
+                                                    <input type="text" class="form-control" name="name" disabled value="{{ auth()->user()->name }}">
                                                 </div>
                                                 <div class="form-row">
                                                     <div class="form-group col-md-6">
                                                         <label class="text-dark" for="">Email</label>
-                                                        <input type="email" class="form-control" name="email"
+                                                        <input type="email" class="form-control" name="email" 
                                                         value="{{ auth()->user()->email }}">
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label class="text-dark" for="">Username</label>
-                                                        <input type="text" class="form-control" name="username" value="{{ auth()->user()->username }}"> 
+                                                        <input type="text" class="form-control" name="username" disabled value="{{ auth()->user()->username }}"> 
                                                     </div>
                                                 </div>
                                                 <div class="form-group">

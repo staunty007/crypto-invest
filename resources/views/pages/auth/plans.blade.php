@@ -106,13 +106,13 @@
                                 <div class="card mb-3" style="max-width: 540px;">
                                     <div class="row no-gutters">
                                         <div class="col-md-4">
-                                            <img src="https://i.ibb.co/56qX9HB/btc-qr.jpgs" class="card-img" alt="...">
+                                            <img src="https://i.ibb.co/3y0jtmW/btc-img.jpg" class="card-img" alt="...">
                                         </div>
                                         <div class="col-md-8">
                                             <div class="card-body">
                                                 <h5 class="card-title">BTC Wallet Address</h5>
                                                 <p class="card-text mb-2">
-                                                    <code>16AU6QyvnoNdbCACQAoGmRSDW59gRAMASB</code>
+                                                    <code>37FbwqRAAGLdj6GZeXMtJgUt9hCK2jAv7U</code>
                                                 </p>
                                                 <button class="btn btn-success btn-sm confirm-pay" data-id="1">Confirm
                                                     Payment</button>
@@ -292,15 +292,14 @@
 
         $.post('/confirm-payment', {package_id : packageId,platform_id: platformId })
         .done( function (data) {
-               console.log(data)
+            if(data.success) {
                 $(confirmBtn).html("Confirmed").attr('disabled', true);
                 $(response).html(data.success);
-            })
-        .fail( function(xhr, textStatus, errorThrown) {
-            $(confirmBtn).html("Confirm Payment")
-            $(response).html(xhr.responseJSON.message);
-            console.log(xhr.responseJSON.message);
-        });
+            } else {
+                $(confirmBtn).html("Confirm Payment")
+                $(response).html(data.error);
+            }
+        })
     });
 
 </script>

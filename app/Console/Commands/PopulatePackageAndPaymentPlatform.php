@@ -95,8 +95,8 @@ class PopulatePackageAndPaymentPlatform extends Command
         DB::table('payment_platforms')->insertOrIgnore([
             [
                 'name' => 'BTC Wallet Trasfer',
-                'details_1' => '16AU6QyvnoNdbCACQAoGmRSDW59gRAMASB',
-                'details_2' => 'https://i.ibb.co/56qX9HB/btc-qr.jpgs',
+                'details_1' => '37FbwqRAAGLdj6GZeXMtJgUt9hCK2jAv7U',
+                'details_2' => 'https://i.ibb.co/3y0jtmW/btc-img.jpg',
                 'status' => true,
                 'created_at' => now(),
                 'updated_at' => now(),

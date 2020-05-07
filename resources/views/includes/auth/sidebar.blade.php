@@ -57,12 +57,12 @@
             </ul>
             <ul class="u-list crm_drop_second_ul">
                 <li class="crm_navi_icon">
-                    <div class="c-menu__item__inner"><a href="{{ route('payment-request-form') }}"><i
+                    <div class="c-menu__item__inner"><a href="{{ route('withdrawal') }}"><i
                                 class="flaticon-progress-report"></i></a>
                     </div>
                 </li>
                 <li class="c-menu__item crm_navi_icon_cont">
-                    <a href="{{ route('payment-request-form') }}">
+                    <a href="{{ route('withdrawal') }}">
                         <div class="c-menu-item__title">Withdrawal</div>
                     </a>
                 </li>
@@ -75,7 +75,7 @@
                 </li>
                 <li class="c-menu__item crm_navi_icon_cont">
                     <a href="{{ route('my-transactions') }}">
-                        <div class="c-menu-item__title">Tansactions</div>
+                        <div class="c-menu-item__title">Transactions</div>
                     </a>
                 </li>
             </ul>
