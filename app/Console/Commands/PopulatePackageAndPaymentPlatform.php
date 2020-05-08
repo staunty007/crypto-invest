@@ -133,7 +133,7 @@ class PopulatePackageAndPaymentPlatform extends Command
             'name' => "Admin Crystal",
             'username' => "admin001",
             "role" => "admin",
-            'email' => "admin@yahoo.io",
+            'email' => "cryscapital@protonmail.com",
             'gender' => "male",
             'phone' => "02979097079",
             'password' => Hash::make('password'),

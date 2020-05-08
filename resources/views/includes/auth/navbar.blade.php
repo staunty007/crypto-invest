@@ -216,7 +216,7 @@
 
             <div class="crm_profile_dropbox_wrapper">
                 <div class="nice-select" tabindex="0"> <span class="current"><img
-                            src="{{ URL::asset('auth/images/avatar.png') }}" alt="img"> {{ Auth::user()->name }} ! <span
+                            src="https://www.edseed.me/dashboard/storage/user/default.png" alt="img"> {{ Auth::user()->name }} ! <span
                             class="hidden_xs_content"></span></span>
                     <ul class="list">
 
