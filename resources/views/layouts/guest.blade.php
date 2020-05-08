@@ -113,6 +113,17 @@
 
 
     @include('includes.guest.footer-script')
+    <script> 
+        window.intergramId = "1067303823";
+        window.intergramCustomizations = {
+            titleClosed: 'Chat with us.',
+            titleOpen: 'CrystalCapital',
+            introMessage: 'Welcome to CrystalCapital. How can we assist you?',
+            mainColor: "#239c59", // Can be any css supported color 'red', 'rgb(255,87,34)', etc
+            alwaysUseFloatingButton: false // Use the mobile floating button also on large screens
+        };
+    </script>
+    <script id="intergram" type="text/javascript" src="https://www.intergram.xyz/js/widget.js"></script>
 </body>
 
 </html>
