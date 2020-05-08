@@ -357,7 +357,7 @@
                     <script>
                         new TradingView.widget({
                             autosize: true,
-                            symbol: "NASDAQ:AAPL",
+                            symbol: "BITSTAMP:BTCUSD",
                             interval: "60",
                             timezone: "Etc/UTC",
                                     theme: "Light",
