@@ -128,7 +128,7 @@ class HomeController extends Controller
         $packageStillActive = ManageProfit::latest()->where('user_id',$request->user()->id)->where('duration_remaining','>', 0)->count();
 
         if($packageStillActive > 0){
-            return redirect('withdrawal')->with('error', 'Package still active. Pls request when due.');
+            return redirect('withdrawal')->with('error', 'Package still active. Please request when due.');
         }
 
         PaymentRequest::create([
