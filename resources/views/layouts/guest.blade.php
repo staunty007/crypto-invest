@@ -10,6 +10,7 @@
         CrystalCapital - Crypto Currency Hedge-Fund
     </title>
     @include('includes.guest.head')
+    <script data-ad-client="ca-pub-5306368080633117" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
 <body>
